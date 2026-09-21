@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#1A120C"/>
+  <!-- a corner, and the light that falls into it -->
+  <path d="M7 7h18v18" fill="none" stroke="#D89A4A" stroke-width="2.4" stroke-linecap="square"/>
+  <circle cx="13.5" cy="18.5" r="4.2" fill="#C1512F"/>
+</svg>

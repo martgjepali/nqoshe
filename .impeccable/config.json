@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-21T13:02:36.516Z",
+        "reason": "user confirmed: the brief pins this exact hex, 'Warm cream base: #FAF3E7', as one of six named palette colours, and separately confirmed a dawn-to-dusk scroll that opens on that cream ground and ends on midnight roast #1A120C"
+      }
+    ]
+  }
+}

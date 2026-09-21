@@ -1,0 +1,320 @@
+@import 'tailwindcss';
+
+@import '@fontsource-variable/piazzolla/standard.css';
+@import '@fontsource-variable/piazzolla/standard-italic.css';
+@import '@fontsource-variable/archivo/wght.css';
+
+/* ---------------------------------------------------------------------------
+   Nëqoshe — fall i kafes
+   One clock owns the page. Scroll position is an hour of the Tirana day, and
+   every act commits to its own ground rather than tinting a shared one.
+   The accent is a single warm fire: you read it as pigment (terracotta) on a
+   light ground and as emitted light (brass) on a dark one.
+--------------------------------------------------------------------------- */
+
+@theme {
+  --font-display: 'Piazzolla Variable', ui-serif, Georgia, serif;
+  --font-sans: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --color-cream: #faf3e7;
+  --color-espresso: #241812;
+  --color-terracotta: #c1512f;
+  --color-brass: #d89a4a;
+  --color-olive: #5c6b42;
+  --color-midnight: #1a120c;
+
+  --ease-light: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-settle: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-move: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+:root {
+  /* Act I default. Acts override these; nothing else is allowed to. */
+  --ground: #faf3e7;
+  --ground-2: #f2e5cf;
+  --ink: #241812;
+  --ink-2: #6b5341;
+  --ink-3: #7b6349;
+  --rule: rgb(36 24 18 / 0.13);
+  --accent: #c1512f;
+  --lift: rgb(36 24 18 / 0.1);
+
+  --gutter: 1.25rem;
+  --measure: 62ch;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 2.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  :root {
+    --gutter: 4rem;
+  }
+}
+
+/* Each act re-declares `color` as well as the token. A custom property
+   substitutes where it is DECLARED, so `body { color: var(--ink) }` resolves
+   against :root once and children inherit that literal value: without this,
+   an act's ink override never reaches inherited text. */
+.act-dawn,
+.act-night,
+.act-dusk {
+  color: var(--ink);
+}
+
+.act-dawn {
+  --ground: #faf3e7;
+  --ground-2: #f2e5cf;
+  --ink: #241812;
+  --ink-2: #6b5341;
+  --ink-3: #7b6349;
+  --rule: rgb(36 24 18 / 0.13);
+  --accent: #c1512f;
+  --on-accent: #faf3e7;
+  --lift: rgb(36 24 18 / 0.1);
+}
+
+.act-night {
+  --ground: #1a120c;
+  --ground-2: #241812;
+  --ink: #f4e7d3;
+  --ink-2: #a8927a;
+  --ink-3: #93795b;
+  --rule: rgb(244 231 211 / 0.14);
+  --accent: #d89a4a;
+  --on-accent: #1a120c;
+  --lift: rgb(0 0 0 / 0.5);
+}
+
+.act-dusk {
+  --ground: #2a1710;
+  --ground-2: #3a1f14;
+  --ink: #faf3e7;
+  --ink-2: #d0ae8c;
+  --ink-3: #a08059;
+  --rule: rgb(216 154 74 / 0.22);
+  --accent: #d89a4a;
+  --on-accent: #1a120c;
+  --lift: rgb(0 0 0 / 0.45);
+}
+
+/* --- semantic utilities ---------------------------------------------------
+   These read the act vars at use site, which @theme colors cannot do:
+   a theme token substitutes against :root and never sees the act override. */
+
+@utility ink {
+  color: var(--ink);
+}
+@utility ink-2 {
+  color: var(--ink-2);
+}
+@utility ink-3 {
+  color: var(--ink-3);
+}
+@utility ink-accent {
+  color: var(--accent);
+}
+@utility ground {
+  background-color: var(--ground);
+}
+@utility ground-2 {
+  background-color: var(--ground-2);
+}
+@utility rule-t {
+  border-top: 1px solid var(--rule);
+}
+@utility rule-b {
+  border-bottom: 1px solid var(--rule);
+}
+@utility rule-all {
+  border: 1px solid var(--rule);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scrollbar-color: color-mix(in oklab, var(--accent) 60%, transparent) transparent;
+  }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  /* The parts we did not draw still carry the design. */
+  ::selection {
+    background: color-mix(in oklab, var(--accent) 34%, transparent);
+    color: var(--ink);
+  }
+
+  :where(input, textarea) {
+    caret-color: var(--accent);
+  }
+
+  ::placeholder {
+    color: var(--ink-3);
+    opacity: 1;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--accent) 55%, transparent);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+  }
+
+  a {
+    color: inherit;
+    text-decoration-color: color-mix(in oklab, var(--accent) 55%, transparent);
+    text-underline-offset: 0.22em;
+    text-decoration-thickness: 1px;
+  }
+
+  ::marker {
+    color: var(--accent);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  button {
+    font: inherit;
+    color: inherit;
+  }
+}
+
+@layer components {
+  /* Display voice. Piazzolla has real weight range; we animate into it. */
+  .display {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+  }
+
+  .display-lg {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 0.94;
+    font-size: clamp(2.75rem, 8.5vw, 6.5rem);
+  }
+
+  /* A measured, small label voice. Used for data readings only, where a
+     number genuinely is a measurement. */
+  .reading {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* The English gloss under an Albanian line. Set as a translation, in
+     italic display, never as a tracked uppercase label: that is an eyebrow. */
+  .gloss {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    line-height: 1.35;
+    color: var(--accent);
+  }
+
+  .body-lg {
+    font-size: clamp(1.0625rem, 0.95rem + 0.5vw, 1.3125rem);
+    line-height: 1.6;
+    max-width: var(--measure);
+    color: var(--ink-2);
+  }
+
+  .shell {
+    width: 100%;
+    max-width: 90rem;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  /* Warm depth: offset and blur, tinted to the ground, never a flat halo. */
+  .lift-sm {
+    box-shadow: 0 2px 8px -2px var(--lift);
+  }
+  .lift-md {
+    box-shadow:
+      0 8px 20px -10px var(--lift),
+      0 2px 6px -4px var(--lift);
+  }
+  .lift-lg {
+    box-shadow:
+      0 30px 60px -30px var(--lift),
+      0 10px 24px -18px var(--lift);
+  }
+}
+
+/* Paper grain. Fixed and pointer-events-none so it never repaints on scroll. */
+.grain {
+  position: fixed;
+  inset: -20%;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .grain {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 120ms !important;
+    scroll-behavior: auto !important;
+  }
+}
