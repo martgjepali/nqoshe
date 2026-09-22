@@ -50,7 +50,7 @@ export function TopBar() {
           <nav className="shell relative flex h-full items-center justify-between gap-6">
             <Link
               to="/"
-              className="text-[1.25rem] no-underline"
+              className="text-lead no-underline"
               style={{ color: 'var(--ink)' }}
               aria-label="Nëqoshe, home"
             >
@@ -58,7 +58,7 @@ export function TopBar() {
             </Link>
             <a
               href="#qoshet"
-              className="rounded-full px-5 py-2 text-[0.8125rem] font-medium whitespace-nowrap no-underline transition-transform duration-150 active:scale-[0.97]"
+              className="rounded-full px-5 py-2 text-small font-medium whitespace-nowrap no-underline transition-transform duration-150 active:scale-[0.97]"
               style={{ background: 'var(--accent)', color: 'var(--on-accent)' }}
             >
               Gjej këndin tënd
@@ -119,7 +119,7 @@ export function Preloader() {
         >
           <div className="shell pb-[12vh]">
             <span
-              className="block text-[clamp(2.4rem,9vw,5rem)]"
+              className="mark-lg block"
               style={{ color: '#241812' }}
             >
               <Wordmark delay={0.05} />

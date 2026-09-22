@@ -46,6 +46,21 @@ export interface Spot {
   last_checked: string | null;
 }
 
+/**
+ * A note is something YOU know that no scraper ever will: the wifi password,
+ * which corner has the view, where the good table is. They live in
+ * src/data/notes.ts, never in the scraped dataset.
+ */
+export type NoteKind = 'wifi' | 'view' | 'corner' | 'tip' | 'heads_up';
+
+export interface SpotNote {
+  kind: NoteKind;
+  /** Albanian leads. */
+  sq: string;
+  /** English supports. */
+  en: string;
+}
+
 export interface Dataset {
   meta: {
     name: string;

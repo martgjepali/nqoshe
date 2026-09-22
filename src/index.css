@@ -1,20 +1,25 @@
 @import 'tailwindcss';
 
-@import '@fontsource-variable/piazzolla/standard.css';
-@import '@fontsource-variable/piazzolla/standard-italic.css';
-@import '@fontsource-variable/archivo/wght.css';
+@import '@fontsource-variable/source-serif-4/standard.css';
+@import '@fontsource-variable/source-serif-4/standard-italic.css';
+@import '@fontsource-variable/source-sans-3/wght.css';
 
 /* ---------------------------------------------------------------------------
-   Nëqoshe — fall i kafes
-   One clock owns the page. Scroll position is an hour of the Tirana day, and
-   every act commits to its own ground rather than tinting a shared one.
-   The accent is a single warm fire: you read it as pigment (terracotta) on a
-   light ground and as emitted light (brass) on a dark one.
+   Nëqoshe — where to work from in Tirana.
+
+   Type is Source Serif 4 over Source Sans 3: low stroke contrast, large
+   x-height, both drawn for reading rather than for display. Nothing here uses
+   a blur to enter, the grain is a whisper, and font-smoothing is left to the
+   OS, because thinning the strokes is what makes warm type feel soft-focus.
+
+   The accent is one warm fire read two ways: terracotta as pigment on a light
+   ground, brass as emitted light on a dark one. Olive is the counter-pigment
+   and marks a quality, never a reading.
 --------------------------------------------------------------------------- */
 
 @theme {
-  --font-display: 'Piazzolla Variable', ui-serif, Georgia, serif;
-  --font-sans: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Source Serif 4 Variable', ui-serif, Georgia, serif;
+  --font-sans: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif;
 
   --color-cream: #faf3e7;
   --color-espresso: #241812;
@@ -23,43 +28,48 @@
   --color-olive: #5c6b42;
   --color-midnight: #1a120c;
 
+  /* The whole type scale, in four UI steps and four display steps. Nothing
+     in the app sets a literal font size outside these. */
+  --text-micro: 0.6875rem;
+  --text-small: 0.8125rem;
+  --text-ui: 0.9375rem;
+  --text-body: 1.0625rem;
+  --text-lead: 1.1875rem;
+
   --ease-light: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-settle: cubic-bezier(0.32, 0.72, 0, 1);
   --ease-move: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 :root {
-  /* Act I default. Acts override these; nothing else is allowed to. */
   --ground: #faf3e7;
   --ground-2: #f2e5cf;
   --ink: #241812;
-  --ink-2: #6b5341;
-  --ink-3: #7b6349;
-  --rule: rgb(36 24 18 / 0.13);
-  --accent: #c1512f;
+  --ink-2: #634c3b;
+  --ink-3: #755e45;
+  --rule: rgb(36 24 18 / 0.15);
+  --accent: #b34724;
   --on-accent: #faf3e7;
-  /* Olive is the second pigment: it marks a QUALITY (a vibe, a use), never a
-     reading. Readings are always the warm fire. Two jobs, two pigments. */
-  --moss: #4e5c38;
+  --moss: #4a5834;
   --readout-plate: rgb(237 225 200 / 0.92);
   --lift: rgb(36 24 18 / 0.1);
 
+  /* Badges hang on a photograph, not on an act's ground. They ride a constant
+     dark plate, so they keep constant values on purpose: an act-scoped colour
+     here would go invisible over the picture. */
+  --plate: rgb(26 18 12 / 0.72);
+  --on-plate: rgb(250 243 231 / 0.72);
+  --on-plate-open: #9ad37f;
+  --on-plate-score: #e9ae63;
+  --on-plate-note: #bfd39b;
+
   --gutter: 1.25rem;
-  /* The light meter hangs in the right margin. This is its reserved lane:
-     without it, any right-aligned text at that vertical band meets the
-     readout, because fixed chrome takes part in no layout. */
-  --rail: 0rem;
-  --measure: 62ch;
+  --measure: 66ch;
 }
 
 @media (min-width: 768px) {
   :root {
     --gutter: 2.5rem;
-  }
-}
-@media (min-width: 1024px) {
-  :root {
-    --rail: 3.25rem;
   }
 }
 @media (min-width: 1280px) {
@@ -68,10 +78,10 @@
   }
 }
 
-/* Each act re-declares `color` as well as the token. A custom property
+/* Each act re-declares `color` as well as its tokens. A custom property
    substitutes where it is DECLARED, so `body { color: var(--ink) }` resolves
-   against :root once and children inherit that literal value: without this,
-   an act's ink override never reaches inherited text. */
+   against :root once and children inherit that literal value; without this an
+   act's ink override never reaches inherited text. */
 .act-dawn,
 .act-night,
 .act-dusk {
@@ -82,12 +92,12 @@
   --ground: #faf3e7;
   --ground-2: #f2e5cf;
   --ink: #241812;
-  --ink-2: #6b5341;
-  --ink-3: #7b6349;
-  --rule: rgb(36 24 18 / 0.13);
-  --accent: #c1512f;
+  --ink-2: #634c3b;
+  --ink-3: #755e45;
+  --rule: rgb(36 24 18 / 0.15);
+  --accent: #b34724;
   --on-accent: #faf3e7;
-  --moss: #4e5c38;
+  --moss: #4a5834;
   --readout-plate: rgb(237 225 200 / 0.92);
   --lift: rgb(36 24 18 / 0.1);
 }
@@ -95,19 +105,17 @@
 .act-night {
   --ground: #1a120c;
   --ground-2: #241812;
-  --ink: #f4e7d3;
-  --ink-2: #a8927a;
-  --ink-3: #93795b;
-  --rule: rgb(244 231 211 / 0.14);
-  --accent: #d89a4a;
+  --ink: #f6ead7;
+  --ink-2: #b7a189;
+  --ink-3: #9c8264;
+  --rule: rgb(244 231 211 / 0.16);
+  --accent: #dda257;
   --on-accent: #1a120c;
   --moss: #9aad73;
   --readout-plate: rgb(18 12 7 / 0.74);
   --lift: rgb(0 0 0 / 0.5);
 }
 
-/* Act three is a warming, not a second night: the ground carries real ember
-   value so the close reads as last light rather than as more midnight. */
 .act-dusk {
   --ground: #45210f;
   --ground-2: #55290f;
@@ -122,9 +130,17 @@
   --lift: rgb(0 0 0 / 0.45);
 }
 
-/* --- semantic utilities ---------------------------------------------------
-   These read the act vars at use site, which @theme colors cannot do:
-   a theme token substitutes against :root and never sees the act override. */
+/* An act that can change while you watch. Custom properties do not transition,
+   but the properties that consume them do, so the swap reads as the lamps
+   coming on rather than as a cut. */
+.act-fade,
+.act-fade * {
+  transition:
+    background-color 700ms var(--ease-light),
+    border-color 700ms var(--ease-light),
+    color 700ms var(--ease-light),
+    fill 700ms var(--ease-light);
+}
 
 @utility ink {
   color: var(--ink);
@@ -144,15 +160,6 @@
 @utility ground-2 {
   background-color: var(--ground-2);
 }
-@utility rule-t {
-  border-top: 1px solid var(--rule);
-}
-@utility rule-b {
-  border-bottom: 1px solid var(--rule);
-}
-@utility rule-all {
-  border: 1px solid var(--rule);
-}
 
 @layer base {
   html {
@@ -165,16 +172,15 @@
     background: var(--ground);
     color: var(--ink);
     font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
     font-synthesis-weight: none;
     font-variant-numeric: tabular-nums;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
     overflow-x: hidden;
   }
 
-  /* The parts we did not draw still carry the design. */
   ::selection {
-    background: color-mix(in oklab, var(--accent) 34%, transparent);
+    background: color-mix(in oklab, var(--accent) 30%, transparent);
     color: var(--ink);
   }
 
@@ -190,18 +196,18 @@
   :focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
-    border-radius: 2px;
+    border-radius: 3px;
   }
 
   ::-webkit-scrollbar {
-    width: 9px;
-    height: 9px;
+    width: 10px;
+    height: 10px;
   }
   ::-webkit-scrollbar-track {
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: color-mix(in oklab, var(--accent) 55%, transparent);
+    background: color-mix(in oklab, var(--accent) 50%, transparent);
     border-radius: 999px;
   }
   ::-webkit-scrollbar-thumb:hover {
@@ -211,7 +217,7 @@
   a {
     color: inherit;
     text-decoration-color: color-mix(in oklab, var(--accent) 55%, transparent);
-    text-underline-offset: 0.22em;
+    text-underline-offset: 0.2em;
     text-decoration-thickness: 1px;
   }
 
@@ -221,7 +227,8 @@
 
   h1,
   h2,
-  h3 {
+  h3,
+  h4 {
     font-family: var(--font-display);
     text-wrap: balance;
     margin: 0;
@@ -241,68 +248,117 @@
     font: inherit;
     color: inherit;
   }
+
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
 }
 
 @layer components {
-  /* Display voice. Piazzolla has real weight range; we animate into it. */
+  /* Display sits at 600 with open tracking. Source Serif has low stroke
+     contrast, so it holds its weight at size without the hairlines that make
+     a high-contrast face shimmer. */
   .display {
     font-family: var(--font-display);
-    font-weight: 500;
-    letter-spacing: -0.03em;
-    line-height: 1.02;
+    font-weight: 600;
+    letter-spacing: -0.012em;
+    line-height: 1.12;
+  }
+
+  /* Display steps. Headings pick one of these rather than an inline clamp. */
+  .display-sm {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.008em;
+    line-height: 1.2;
+    font-size: 1.1875rem;
+  }
+
+  .display-md {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.16;
+    font-size: clamp(1.3rem, 2.4vw, 1.6rem);
   }
 
   .display-lg {
     font-family: var(--font-display);
-    font-weight: 500;
-    letter-spacing: -0.035em;
-    line-height: 0.94;
-    font-size: clamp(2.75rem, 8.5vw, 6.5rem);
+    font-weight: 600;
+    letter-spacing: -0.014em;
+    line-height: 1.1;
+    font-size: clamp(1.6rem, 3.2vw, 2.3rem);
   }
 
-  /* A measured, small label voice. Used for data readings only, where a
-     number genuinely is a measurement. */
+  /* The mark, at the three sizes the app sets it: a page hero, a preloader,
+     and the small lockup in chrome and the footer. */
+  .mark-xl {
+    font-size: clamp(3rem, 9vw, 6rem);
+    line-height: 0.95;
+  }
+  .mark-lg {
+    font-size: clamp(2.4rem, 9vw, 5rem);
+    line-height: 0.95;
+  }
+  .mark-sm {
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+
+  /* The one big numeral role: the hour on the dial, the work score on a
+     detail page. Large, but a reading rather than a heading. */
+  .display-dial {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .display-xl {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.018em;
+    line-height: 1.04;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  /* The label voice, for measurements and controls. Bigger and less tracked
+     than a typical micro-label, because it carries real values. */
   .reading {
     font-family: var(--font-sans);
-    font-weight: 500;
-    font-size: 0.6875rem;
-    letter-spacing: 0.1em;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     font-variant-numeric: tabular-nums;
   }
 
-  /* The English gloss under an Albanian line. Set as a translation, in
-     italic display, never as a tracked uppercase label: that is an eyebrow. */
+  /* The English line under an Albanian one. A translation, set as one. */
   .gloss {
     font-family: var(--font-display);
     font-style: italic;
     font-weight: 400;
-    letter-spacing: -0.005em;
-    line-height: 1.35;
+    letter-spacing: 0;
+    line-height: 1.4;
     color: var(--accent);
   }
 
   .body-lg {
-    font-size: clamp(1.0625rem, 0.95rem + 0.5vw, 1.3125rem);
-    line-height: 1.6;
+    font-size: clamp(1.0625rem, 0.98rem + 0.4vw, 1.25rem);
+    line-height: 1.7;
     max-width: var(--measure);
     color: var(--ink-2);
   }
 
-  /* Anchored sections clear the fixed bar rather than landing under it. */
-  section[id] {
-    scroll-margin-top: 5.5rem;
-  }
-
   .shell {
     width: 100%;
-    max-width: 90rem;
+    max-width: 82rem;
     margin-inline: auto;
-    padding-left: var(--gutter);
-    padding-right: calc(var(--gutter) + var(--rail));
+    padding-inline: var(--gutter);
   }
 
-  /* Warm depth: offset and blur, tinted to the ground, never a flat halo. */
   .lift-sm {
     box-shadow: 0 2px 8px -2px var(--lift);
   }
@@ -318,24 +374,21 @@
   }
 }
 
-/* Paper grain. Fixed and pointer-events-none so it never repaints on scroll. */
+/* A whisper of paper, fixed and pointer-events-none so it never repaints on
+   scroll. Kept far below the level where it costs text any crispness. */
 .grain {
   position: fixed;
   inset: -20%;
   z-index: 60;
   pointer-events: none;
-  opacity: 0.4;
+  opacity: 0.1;
   mix-blend-mode: soft-light;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-  will-change: transform;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-  .grain {
-    animation: none;
   }
   *,
   *::before,

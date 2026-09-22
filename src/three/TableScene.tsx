@@ -2,7 +2,6 @@ import { useMemo, useRef } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { ContactShadows } from '@react-three/drei';
 import * as THREE from 'three';
-import type { MotionValue } from 'motion/react';
 import { Steam } from './Steam';
 
 /* -------------------------------------------------------------------------
@@ -186,29 +185,32 @@ function Table() {
 /* ------------------------------------------------------------------ light */
 
 const SUN_KEYS = [
-  // progress, position, colour, intensity
-  { p: 0.0, pos: [-3.4, 0.8, 1.9], color: '#FFC373', i: 4.6 },
-  { p: 0.34, pos: [-1.2, 4.4, 1.2], color: '#FFEFD6', i: 3.8 },
-  { p: 0.7, pos: [2.5, 0.95, 0.9], color: '#FF8033', i: 3.4 },
-  { p: 0.8, pos: [3.0, 0.18, 0.4], color: '#8E3410', i: 0.5 },
-  { p: 1.0, pos: [3.2, -0.3, 0.2], color: '#4A1A08', i: 0.06 },
+  // hour of the day, sun position, colour, intensity
+  { h: 6.0, pos: [-3.6, 0.3, 2.0], color: '#D9742F', i: 1.2 },
+  { h: 8.0, pos: [-3.4, 1.0, 1.9], color: '#FFC373', i: 4.4 },
+  { h: 13.0, pos: [-0.8, 4.6, 1.1], color: '#FFEFD6', i: 3.9 },
+  { h: 18.5, pos: [2.5, 0.95, 0.9], color: '#FF8033', i: 3.4 },
+  { h: 20.0, pos: [3.0, 0.2, 0.4], color: '#8E3410', i: 0.6 },
+  { h: 24.0, pos: [3.2, -0.3, 0.2], color: '#4A1A08', i: 0.05 },
 ];
 
-function sample(progress: number) {
+function sample(hour: number) {
   let a = SUN_KEYS[0];
   let b = SUN_KEYS[SUN_KEYS.length - 1];
   for (let i = 0; i < SUN_KEYS.length - 1; i++) {
-    if (progress >= SUN_KEYS[i].p && progress <= SUN_KEYS[i + 1].p) {
+    if (hour >= SUN_KEYS[i].h && hour <= SUN_KEYS[i + 1].h) {
       a = SUN_KEYS[i];
       b = SUN_KEYS[i + 1];
       break;
     }
   }
-  const t = b.p === a.p ? 0 : (progress - a.p) / (b.p - a.p);
+  const t = b.h === a.h ? 0 : (hour - a.h) / (b.h - a.h);
   return { a, b, t };
 }
 
 function Light({ read }: { read: () => number }) {
+  // `read` returns the smoothed hour, so dragging the dial moves the sun
+  // rather than cutting to it.
   const sun = useRef<THREE.DirectionalLight>(null);
   const lamp = useRef<THREE.PointLight>(null);
   const ambient = useRef<THREE.HemisphereLight>(null);
@@ -237,16 +239,16 @@ function Light({ read }: { read: () => number }) {
 
     if (lamp.current) {
       // The table lamp only earns its place once the sun has gone.
-      lamp.current.intensity = THREE.MathUtils.smoothstep(p, 0.68, 0.86) * 3.6;
+      lamp.current.intensity = THREE.MathUtils.smoothstep(p, 17.4, 20.2) * 3.8;
     }
 
     if (ambient.current) {
-      scratch.copy(skyDay).lerp(skyNight, THREE.MathUtils.smoothstep(p, 0.58, 0.84));
+      scratch.copy(skyDay).lerp(skyNight, THREE.MathUtils.smoothstep(p, 16.8, 20.4));
       ambient.current.color.copy(scratch);
       ambient.current.intensity = THREE.MathUtils.lerp(
-        0.85,
+        0.9,
         0.2,
-        THREE.MathUtils.smoothstep(p, 0.56, 0.86),
+        THREE.MathUtils.smoothstep(p, 16.6, 20.4),
       );
     }
   });
@@ -315,27 +317,49 @@ function Rig({ read }: { read: () => number }) {
   );
 }
 
-export default function TableScene({ progress }: { progress: MotionValue<number> }) {
-  const read = useMemo(() => () => progress.get(), [progress]);
+export default function TableScene({ hour }: { hour: number }) {
+  // The target the caller set, and the value the scene is actually showing.
+  // Easing here rather than in React keeps a drag at 60fps with no re-renders.
+  const target = useRef(hour);
+  const shown = useRef(hour);
+  target.current = hour;
+
+  const read = useMemo(() => () => shown.current, []);
 
   return (
     <Canvas
       shadows
       dpr={[1, 1.75]}
       gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
-      camera={{ position: [0.1, 0.62, 4.5], fov: 27 }}
+      camera={{ position: [0.08, 0.66, 3.5], fov: 31 }}
       onCreated={({ gl, camera }) => {
         gl.toneMapping = THREE.ACESFilmicToneMapping;
         gl.toneMappingExposure = 1.06;
-        camera.lookAt(0, 0.14, 0);
+        camera.lookAt(0, 0.08, 0);
         camera.updateProjectionMatrix();
       }}
       style={{ touchAction: 'pan-y' }}
     >
-      <group position={[0, -0.06, 0]}>
+      <Ease target={target} shown={shown} />
+      <group position={[0, 0.02, 0]}>
         <Light read={read} />
         <Rig read={read} />
       </group>
     </Canvas>
   );
+}
+
+/** One place that walks the shown hour toward the target, frame-rate safe. */
+function Ease({
+  target,
+  shown,
+}: {
+  target: React.RefObject<number>;
+  shown: React.RefObject<number>;
+}) {
+  useFrame((_, delta) => {
+    const k = 1 - Math.pow(0.0001, delta);
+    shown.current += (target.current - shown.current) * k;
+  });
+  return null;
 }

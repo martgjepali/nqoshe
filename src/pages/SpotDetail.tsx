@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { motion, useReducedMotion } from 'motion/react';
-import { ArrowLeft, ArrowUpRight, Warning } from '@phosphor-icons/react';
+import { ArrowLeft, ArrowUpRight, Key, NotePencil, Warning } from '@phosphor-icons/react';
 import {
   bestForCopy,
   byId,
@@ -12,6 +12,8 @@ import {
   toneFor,
 } from '../lib/spots';
 import { SpotCard } from '../components/SpotCard';
+import { notesFor } from '../data/notes';
+import { noteIcon, noteLabel } from '../lib/icons';
 import type { Spot } from '../lib/types';
 import { Reveal } from '../components/Reveal';
 import { Wordmark } from '../components/Wordmark';
@@ -63,11 +65,11 @@ function RowList({ rows }: { rows: Row[] }) {
             {r.label}
           </dt>
           <dd
-            className="display m-0 mt-1.5 text-[1.15rem] leading-[1.2]"
+            className="display m-0 mt-1.5 text-lead leading-[1.2]"
             style={{ color: r.value ? 'var(--ink)' : 'var(--ink-3)' }}
           >
             {/* An unknown is stated, never implied and never shown as a no. */}
-            {r.value ?? <span className="text-[0.95rem] italic">nuk dihet</span>}
+            {r.value ?? <span className="text-ui italic">nuk dihet</span>}
           </dd>
         </div>
       ))}
@@ -84,14 +86,14 @@ export default function SpotDetail() {
     return (
       <main className="act-dawn ground flex min-h-[100dvh] items-center">
         <div className="shell">
-          <h1 className="display text-[clamp(2rem,6vw,3.5rem)]">Ky qoshe nuk ekziston.</h1>
+          <h1 className="display-xl">Ky qoshe nuk ekziston.</h1>
           <p className="body-lg mt-5">
             No corner is filed under &ldquo;{id}&rdquo;. It may have closed, or the link may be
             older than the list.
           </p>
           <Link
             to="/"
-            className="mt-9 inline-flex items-center gap-2 rounded-full px-6 py-3 text-[0.9375rem] font-medium no-underline"
+            className="mt-9 inline-flex items-center gap-2 rounded-full px-6 py-3 text-ui font-medium no-underline"
             style={{ background: 'var(--accent)', color: 'var(--on-accent)' }}
           >
             <ArrowLeft size={16} weight="bold" /> Kthehu
@@ -104,6 +106,8 @@ export default function SpotDetail() {
   const img = imageFor(spot.id) ?? '/img/detail-streha.webp';
   const cat = categoryCopy[spot.category];
   const near = nearby(spot);
+  const notes = notesFor(spot.id);
+  const hasWifiNote = notes.some((n) => n.kind === 'wifi');
 
   return (
     <main className="act-dawn ground min-h-[100dvh]">
@@ -131,7 +135,7 @@ export default function SpotDetail() {
           <div className="flex items-center justify-between gap-5">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-[0.8125rem] font-medium no-underline transition-colors duration-200"
+              className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-small font-medium no-underline transition-colors duration-200"
               style={{
                 background: 'rgba(26,18,12,0.5)',
                 color: '#FAF3E7',
@@ -141,7 +145,7 @@ export default function SpotDetail() {
             >
               <ArrowLeft size={14} weight="bold" /> Të gjitha qoshet
             </Link>
-            <span className="text-[1.05rem]" style={{ color: 'rgba(250,243,231,0.85)' }}>
+            <span className="text-body" style={{ color: 'rgba(250,243,231,0.85)' }}>
               <Wordmark animate={false} />
             </span>
           </div>
@@ -152,13 +156,13 @@ export default function SpotDetail() {
             transition={{ duration: 1.2, delay: 0.15, ease: ease.out }}
           >
             <h1
-              className="display max-w-[16ch] text-[clamp(2.2rem,7vw,4.6rem)] leading-[0.98]"
+              className="display-xl max-w-[16ch]"
               style={{ color: '#FAF3E7', textShadow: '0 2px 30px rgba(20,13,8,0.6)' }}
             >
               {spot.name}
             </h1>
             <p
-              className="mt-4 text-[1.0625rem]"
+              className="mt-4 text-body"
               style={{ color: '#EDB874', textShadow: '0 1px 14px rgba(20,13,8,0.85)' }}
             >
               {[spot.neighborhood || 'Tiranë', cat?.sq].filter(Boolean).join(', ')}
@@ -171,7 +175,7 @@ export default function SpotDetail() {
       <div className="shell grid grid-cols-1 gap-x-12 gap-y-16 py-16 md:py-24 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <Reveal>
-            <p className="body-lg !max-w-none text-[clamp(1.15rem,1.6vw,1.45rem)] !leading-[1.5]" style={{ color: 'var(--ink)' }}>
+            <p className="body-lg !max-w-none text-lead !leading-[1.5]" style={{ color: 'var(--ink)' }}>
               {spot.highlights}
             </p>
           </Reveal>
@@ -190,20 +194,85 @@ export default function SpotDetail() {
                   weight="light"
                   style={{ color: 'var(--accent)', flexShrink: 0, marginTop: 2 }}
                 />
-                <p className="text-[0.9375rem] leading-[1.6]" style={{ color: 'var(--ink-2)' }}>
+                <p className="text-ui leading-[1.6]" style={{ color: 'var(--ink-2)' }}>
                   {spot.caveats}
                 </p>
               </aside>
             </Reveal>
           )}
 
+          <Reveal delay={0.06}>
+            <div className="mt-10">
+              <h2
+                className="display-md flex items-center gap-2.5"
+                style={{ color: 'var(--ink)' }}
+              >
+                <NotePencil size={20} style={{ color: 'var(--moss)' }} />
+                Shënime nga vendi
+              </h2>
+              <p className="gloss mt-1.5 text-ui">Notes from actually being there</p>
+
+              <ul className="m-0 mt-5 list-none space-y-3 p-0">
+                {notes.map((n) => {
+                  const Glyph = noteIcon[n.kind];
+                  return (
+                    <li
+                      key={n.kind + n.sq}
+                      className="flex gap-4 px-5 py-4"
+                      style={{
+                        background: 'color-mix(in oklab, var(--moss) 8%, transparent)',
+                        border: '1px solid color-mix(in oklab, var(--moss) 22%, transparent)',
+                      }}
+                    >
+                      <Glyph
+                        size={20}
+                        className="mt-0.5 shrink-0"
+                        style={{ color: 'var(--moss)' }}
+                        aria-hidden
+                      />
+                      <div>
+                        <span className="reading" style={{ color: 'var(--moss)' }}>
+                          {noteLabel[n.kind].sq}
+                        </span>
+                        <p
+                          className="mt-1 text-ui leading-[1.6]"
+                          style={{ color: 'var(--ink)' }}
+                        >
+                          {n.sq}
+                        </p>
+                        <p className="gloss mt-1 text-ui" style={{ color: 'var(--ink-3)' }}>
+                          {n.en}
+                        </p>
+                      </div>
+                    </li>
+                  );
+                })}
+
+                {/* The gap, shown rather than hidden. This is the field you fill in. */}
+                {!hasWifiNote && spot.laptop_friendly === true && (
+                  <li
+                    className="flex items-center gap-4 px-5 py-4"
+                    style={{ border: '1px dashed var(--rule)' }}
+                  >
+                    <Key size={20} className="shrink-0" style={{ color: 'var(--ink-3)' }} aria-hidden />
+                    <p className="text-ui italic" style={{ color: 'var(--ink-3)' }}>
+                      Fjalëkalimi i wifi-t: s&rsquo;e dimë ende.
+                      <span className="not-italic"> · </span>
+                      No wifi password recorded yet.
+                    </p>
+                  </li>
+                )}
+              </ul>
+            </div>
+          </Reveal>
+
           {spot.best_for.length > 0 && (
             <Reveal delay={0.1}>
               <div className="mt-11">
-                <h2 className="display text-[1.35rem]" style={{ color: 'var(--ink)' }}>
+                <h2 className="display-md" style={{ color: 'var(--ink)' }}>
                   Mirë për
                 </h2>
-                <p className="gloss mt-1.5 text-[0.95rem]">Good for</p>
+                <p className="gloss mt-1.5 text-ui">Good for</p>
                 {/* Two columns only when there is enough to fill them: a ruled
                     row with nothing under it reads as an absence, and under the
                     null rule this page never implies one. */}
@@ -215,7 +284,7 @@ export default function SpotDetail() {
                   {spot.best_for.map((b) => (
                     <li
                       key={b}
-                      className="display py-2.5 text-[1.05rem]"
+                      className="display py-2.5 text-body"
                       style={{ color: 'var(--moss)', borderBottom: '1px solid var(--rule)' }}
                     >
                       {bestForCopy[b] ?? b.replace(/_/g, ' ')}
@@ -248,14 +317,14 @@ export default function SpotDetail() {
           {spot.branches.length > 0 && (
             <Reveal delay={0.14}>
               <div className="mt-12">
-                <h2 className="display text-[1.35rem]" style={{ color: 'var(--ink)' }}>
+                <h2 className="display-md" style={{ color: 'var(--ink)' }}>
                   Degët
                 </h2>
                 <ul className="mt-4 m-0 list-none p-0">
                   {spot.branches.map((b) => (
                     <li
                       key={b}
-                      className="py-2.5 text-[0.95rem]"
+                      className="py-2.5 text-ui"
                       style={{ color: 'var(--ink-2)', borderBottom: '1px solid var(--rule)' }}
                     >
                       {b}
@@ -268,11 +337,11 @@ export default function SpotDetail() {
           <Reveal delay={0.16}>
             {/* --- provenance ------------------------------------------- */}
             <div className="mt-8">
-              <h2 className="display text-[1.35rem]" style={{ color: 'var(--ink)' }}>
+              <h2 className="display-md" style={{ color: 'var(--ink)' }}>
                 Nga vijnë këto
               </h2>
-              <p className="gloss mt-1.5 text-[0.95rem]">Where this comes from</p>
-              <p className="mt-5 text-[0.9rem] leading-[1.6]" style={{ color: 'var(--ink-2)' }}>
+              <p className="gloss mt-1.5 text-ui">Where this comes from</p>
+              <p className="mt-5 text-ui leading-[1.6]" style={{ color: 'var(--ink-2)' }}>
                 Compiled from public sources
                 {known(spot.oldest_source_year) ? `, the oldest from ${spot.oldest_source_year}` : ''}
                 . Not visited or confirmed in person.
@@ -291,7 +360,7 @@ export default function SpotDetail() {
                         href={src}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="text-[0.875rem]"
+                        className="text-ui"
                         style={{ color: 'var(--ink-2)' }}
                       >
                         {host}
@@ -308,7 +377,7 @@ export default function SpotDetail() {
                         href={spot.website}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="text-[0.875rem] font-medium"
+                        className="text-ui font-medium"
                         style={{ color: 'var(--accent)' }}
                       >
                         Faqja zyrtare
@@ -321,7 +390,7 @@ export default function SpotDetail() {
                         href={spot.instagram}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="text-[0.875rem] font-medium"
+                        className="text-ui font-medium"
                         style={{ color: 'var(--accent)' }}
                       >
                         Instagram
@@ -341,10 +410,10 @@ export default function SpotDetail() {
               className="p-7 md:p-9"
               style={{ background: 'var(--ground-2)', border: '1px solid var(--rule)' }}
             >
-              <h2 className="display text-[1.35rem] leading-tight" style={{ color: 'var(--ink)' }}>
+              <h2 className="display-md leading-tight" style={{ color: 'var(--ink)' }}>
                 Sa mirë punohet këtu
               </h2>
-              <p className="gloss mt-1.5 text-[1rem]">How workable it is</p>
+              <p className="gloss mt-1.5 text-body">How workable it is</p>
 
               {known(spot.work_score) && (
                 <div
@@ -352,12 +421,12 @@ export default function SpotDetail() {
                   style={{ borderBottom: '1px solid var(--rule)' }}
                 >
                   <span
-                    className="display text-[3.4rem] leading-none"
+                    className="display-dial"
                     style={{ color: 'var(--accent)' }}
                   >
                     {spot.work_score}
                   </span>
-                  <span className="text-[0.875rem] leading-[1.4]" style={{ color: 'var(--ink-2)' }}>
+                  <span className="text-ui leading-[1.4]" style={{ color: 'var(--ink-2)' }}>
                     nga 10, sipas burimeve
                     <br />
                     <span style={{ color: 'var(--ink-3)' }}>work score, from the sources</span>
@@ -376,13 +445,13 @@ export default function SpotDetail() {
                 href={spot.google_maps_url}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="mt-9 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[0.9375rem] font-medium no-underline transition-transform duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-[0.98]"
+                className="mt-9 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-ui font-medium no-underline transition-transform duration-150 ease-light active:scale-[0.98]"
                 style={{ background: 'var(--accent)', color: 'var(--on-accent)' }}
               >
                 Hape në hartë <ArrowUpRight size={16} weight="bold" />
               </a>
               {spot.address && (
-                <p className="mt-3.5 text-center text-[0.8125rem]" style={{ color: 'var(--ink-3)' }}>
+                <p className="mt-3.5 text-center text-small" style={{ color: 'var(--ink-3)' }}>
                   {spot.address}
                 </p>
               )}
@@ -403,16 +472,16 @@ export default function SpotDetail() {
               <div>
                 <h2
                   id="nearby"
-                  className="display text-[clamp(1.6rem,3.4vw,2.4rem)] leading-[1.08]"
+                  className="display-lg leading-[1.08]"
                   style={{ color: 'var(--ink)' }}
                 >
                   Të tjera në {spot.neighborhood || 'Tiranë'}
                 </h2>
-                <p className="gloss mt-2 text-[1.05rem]">Other corners in the same part of town</p>
+                <p className="gloss mt-2 text-body">Other corners in the same part of town</p>
               </div>
               <Link
                 to="/#qoshet"
-                className="inline-flex items-center gap-2 text-[0.9375rem] font-medium no-underline"
+                className="inline-flex items-center gap-2 text-ui font-medium no-underline"
                 style={{ color: 'var(--ink-2)' }}
               >
                 <ArrowLeft size={15} weight="bold" /> Të gjitha qoshet
@@ -420,7 +489,7 @@ export default function SpotDetail() {
             </div>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-6">
               {near.map((s, i) => (
-                <SpotCard key={s.id} spot={s} ratio="wide" index={i} />
+                <SpotCard key={s.id} spot={s} index={i} />
               ))}
             </div>
           </div>

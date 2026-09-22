@@ -4,164 +4,291 @@
   "title": "Design System: Nëqoshe",
   "extensions": {
     "colorMeta": {
-      "cream": {
-        "role": "neutral",
-        "displayName": "Morning Cream",
-        "canonical": "#faf3e7",
-        "tonalRamp": ["#241812", "#3d2a1d", "#5c4330", "#7d6048", "#a18468", "#c5ab8e", "#e3d2b9", "#faf3e7"]
-      },
-      "cream-deep": {
-        "role": "neutral",
-        "displayName": "Cream Deep",
-        "canonical": "#f2e5cf",
-        "tonalRamp": ["#251b0f", "#3f2f1c", "#5e482c", "#80663f", "#a58a5c", "#c9b083", "#e2cfad", "#f2e5cf"]
-      },
-      "espresso": {
-        "role": "neutral",
-        "displayName": "Espresso Ink",
-        "canonical": "#241812",
-        "tonalRamp": ["#140c08", "#241812", "#3a251a", "#543724", "#734d33", "#976848", "#bd8b66", "#e0b791"]
-      },
-      "espresso-soft": {
-        "role": "neutral",
-        "displayName": "Soft Espresso",
-        "canonical": "#6b5341",
-        "tonalRamp": ["#1d1510", "#2f231a", "#453326", "#5a4334", "#6b5341", "#8b6e57", "#ac8d74", "#cdb096"]
-      },
-      "espresso-faint": {
-        "role": "neutral",
-        "displayName": "Faint Espresso",
-        "canonical": "#7b6349",
-        "tonalRamp": ["#221a12", "#35281c", "#4b3927", "#624b33", "#7b6349", "#9b8063", "#bb9f80", "#dabfa1"]
-      },
       "terracotta": {
         "role": "primary",
-        "displayName": "Tirana Terracotta",
-        "canonical": "#c1512f",
-        "tonalRamp": ["#2e120a", "#4a1d0f", "#6a2b16", "#8f3a1f", "#c1512f", "#d97653", "#eda184", "#f8ccbb"]
-      },
-      "terracotta-deep": {
-        "role": "primary",
-        "displayName": "Deep Terracotta",
-        "canonical": "#8f3a1f",
-        "tonalRamp": ["#220d07", "#39150b", "#531f10", "#712b16", "#8f3a1f", "#b45537", "#d4805f", "#eeb193"]
+        "displayName": "Terracotta Fire",
+        "canonical": "#b34724",
+        "notes": "The accent on any light ground. Darkened from the brand base #c1512f for contrast on cream.",
+        "tonalRamp": [
+          "#2c1008",
+          "#4a1c0e",
+          "#6d2a15",
+          "#8f381c",
+          "#b34724",
+          "#d0663f",
+          "#e39a7c",
+          "#f6d7ca"
+        ]
       },
       "brass": {
         "role": "primary",
-        "displayName": "Lamp Brass",
-        "canonical": "#d89a4a",
-        "tonalRamp": ["#33210a", "#4d3210", "#6a4617", "#8b5c1f", "#ae7529", "#d89a4a", "#e8bd85", "#f6dfbe"]
+        "displayName": "Brass Light",
+        "canonical": "#dda257",
+        "notes": "The same fire on the night ground: emitted light rather than pigment.",
+        "tonalRamp": [
+          "#3a2409",
+          "#5a3a12",
+          "#7c521d",
+          "#a06c2b",
+          "#c4883d",
+          "#dda257",
+          "#ecc290",
+          "#f9e7cb"
+        ]
       },
-      "ember-accent": {
+      "ember": {
         "role": "primary",
-        "displayName": "Ember Light",
+        "displayName": "Ember",
         "canonical": "#e9a24f",
-        "tonalRamp": ["#36230c", "#503412", "#6e4818", "#8f5e20", "#b3772a", "#e9a24f", "#f2c389", "#fae0c0"]
+        "notes": "The accent inside the dusk act, where the ground is already warm.",
+        "tonalRamp": [
+          "#3d2407",
+          "#5e3a0e",
+          "#81521a",
+          "#a56c28",
+          "#c88739",
+          "#e9a24f",
+          "#f2c68f",
+          "#fbe9cd"
+        ]
+      },
+      "moss": {
+        "role": "secondary",
+        "displayName": "Moss",
+        "canonical": "#4a5834",
+        "notes": "The counter-pigment. Marks a quality (vibe, use, category, human note), never a reading.",
+        "tonalRamp": [
+          "#171c0e",
+          "#252d17",
+          "#343f22",
+          "#4a5834",
+          "#637347",
+          "#7f8f60",
+          "#a8b48c",
+          "#dde2cf"
+        ]
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "Warm Cream",
+        "canonical": "#faf3e7",
+        "notes": "The dawn ground, also painted into index.html so the first frame is already the right world.",
+        "tonalRamp": [
+          "#2b2419",
+          "#443a29",
+          "#61543d",
+          "#877856",
+          "#b0a181",
+          "#d6c9ad",
+          "#f2e5cf",
+          "#faf3e7"
+        ]
+      },
+      "espresso": {
+        "role": "neutral",
+        "displayName": "Espresso",
+        "canonical": "#241812",
+        "notes": "Primary ink on light. Ramps to #634c3b (body) and #755e45 (captions and labels).",
+        "tonalRamp": [
+          "#140c08",
+          "#241812",
+          "#3c2a1f",
+          "#4f3a2b",
+          "#634c3b",
+          "#755e45",
+          "#a48a6c",
+          "#dbcbb6"
+        ]
       },
       "midnight": {
         "role": "neutral",
         "displayName": "Midnight Roast",
         "canonical": "#1a120c",
-        "tonalRamp": ["#0d0906", "#1a120c", "#2d1f14", "#43301f", "#5d442c", "#7c5d3d", "#9e7a53", "#c29b6f"]
+        "notes": "The night ground; #241812 is its raised surface.",
+        "tonalRamp": [
+          "#0d0805",
+          "#1a120c",
+          "#241812",
+          "#37251a",
+          "#4d3625",
+          "#6d4f36",
+          "#9c7c5c",
+          "#d2bda3"
+        ]
       },
-      "candlelight": {
+      "bark": {
         "role": "neutral",
-        "displayName": "Candlelight",
-        "canonical": "#f4e7d3",
-        "tonalRamp": ["#26190c", "#3e2b18", "#5a4225", "#795b34", "#9b7a4d", "#bfa176", "#dcc5a4", "#f4e7d3"]
-      },
-      "candlelight-soft": {
-        "role": "neutral",
-        "displayName": "Soft Candlelight",
-        "canonical": "#a8927a",
-        "tonalRamp": ["#251d15", "#3a2e22", "#514131", "#695542", "#836c55", "#a8927a", "#c7b59f", "#e4d8c6"]
-      },
-      "candlelight-faint": {
-        "role": "neutral",
-        "displayName": "Faint Candlelight",
-        "canonical": "#93795b",
-        "tonalRamp": ["#20190f", "#33291a", "#493a25", "#5f4c31", "#77603e", "#93795b", "#b69e80", "#d7c5aa"]
-      },
-      "ember-ground": {
-        "role": "neutral",
-        "displayName": "Ember Ground",
+        "displayName": "Bark",
         "canonical": "#45210f",
-        "tonalRamp": ["#1c0c05", "#2e1409", "#45210f", "#5f2f16", "#7d411f", "#9d562b", "#c1743f", "#dfa070"]
+        "notes": "The dusk ground of the closing footer; #55290f is its raised surface.",
+        "tonalRamp": [
+          "#1d0c05",
+          "#2d150a",
+          "#45210f",
+          "#55290f",
+          "#78411d",
+          "#9d5c2f",
+          "#c68a5b",
+          "#eccdb3"
+        ]
       },
-      "ember-ground-2": {
+      "parchment": {
         "role": "neutral",
-        "displayName": "Ember Ground Two",
-        "canonical": "#55290f",
-        "tonalRamp": ["#210f05", "#371a09", "#55290f", "#703916", "#8e4b1e", "#ae6129", "#ce8244", "#e7ac77"]
+        "displayName": "Parchment",
+        "canonical": "#f6ead7",
+        "notes": "Primary ink on the night ground. Ramps to #b7a189 and #9c8264.",
+        "tonalRamp": [
+          "#2a2116",
+          "#443725",
+          "#5f4d36",
+          "#83694b",
+          "#9c8264",
+          "#b7a189",
+          "#dcccb5",
+          "#f6ead7"
+        ]
       },
-      "ember-ink": {
-        "role": "neutral",
-        "displayName": "Last Light",
-        "canonical": "#fdf4e6",
-        "tonalRamp": ["#291b0d", "#412d19", "#5d4426", "#7d5c35", "#a07c4c", "#c4a377", "#e0cba6", "#fdf4e6"]
+      "brand-terracotta": {
+        "role": "primary",
+        "displayName": "Brand Terracotta (base)",
+        "canonical": "#c1512f",
+        "notes": "User-specified source pigment. Kept as a Tailwind theme colour and used outside any act (the preloader rule). The runtime accent is the darkened #b34724.",
+        "tonalRamp": [
+          "#30130a",
+          "#4f2010",
+          "#722f18",
+          "#963f20",
+          "#c1512f",
+          "#d8795a",
+          "#e9a992",
+          "#f8ddd4"
+        ]
       },
-      "ember-ink-soft": {
-        "role": "neutral",
-        "displayName": "Soft Last Light",
-        "canonical": "#e2bc93",
-        "tonalRamp": ["#2a1c0e", "#432e1a", "#5f4326", "#7e5b34", "#a07a4b", "#c19a6c", "#e2bc93", "#f3ddc4"]
-      },
-      "ember-ink-faint": {
-        "role": "neutral",
-        "displayName": "Faint Last Light",
-        "canonical": "#c09a6c",
-        "tonalRamp": ["#251a0e", "#3b2a18", "#543d24", "#6f5331", "#8c6c42", "#a98457", "#c09a6c", "#dcbf99"]
-      },
-      "ember-on-accent": {
-        "role": "neutral",
-        "displayName": "Ember On-Accent",
-        "canonical": "#2a1206",
-        "tonalRamp": ["#160903", "#2a1206", "#401d0b", "#592911", "#743819", "#914a24", "#b16334", "#d0854e"]
-      },
-      "moss": {
+      "brand-olive": {
         "role": "secondary",
-        "displayName": "Table Olive",
-        "canonical": "#4e5c38",
-        "tonalRamp": ["#151a0f", "#242c1a", "#353f25", "#485430", "#4e5c38", "#728c52", "#9aad73", "#c3d0a5"]
-      },
-      "moss-night": {
-        "role": "secondary",
-        "displayName": "Night Olive",
-        "canonical": "#9aad73",
-        "tonalRamp": ["#1a1f11", "#2b331c", "#3f4a28", "#556236", "#6d7c46", "#879759", "#9aad73", "#c4d1a6"]
-      },
-      "moss-dusk": {
-        "role": "secondary",
-        "displayName": "Dusk Olive",
-        "canonical": "#a8b981",
-        "tonalRamp": ["#1c2013", "#2e351e", "#434d2b", "#596639", "#718048", "#8c9c60", "#a8b981", "#cfdcb2"]
+        "displayName": "Brand Olive (base)",
+        "canonical": "#5c6b42",
+        "notes": "User-specified source pigment, used in the 3D table's plant materials. The runtime counter-pigment is #4a5834.",
+        "tonalRamp": [
+          "#1c2113",
+          "#2d341d",
+          "#3f4a29",
+          "#5c6b42",
+          "#77875a",
+          "#96a57c",
+          "#bcc7a7",
+          "#e4e9d9"
+        ]
       }
     },
     "typographyMeta": {
-      "display-lg": { "displayName": "Display Large", "purpose": "Page-owning statements: the close, the hero-scale lines. Piazzolla at poster scale." },
-      "display": { "displayName": "Display", "purpose": "Section headlines, set tight with balanced wrapping." },
-      "title": { "displayName": "Title", "purpose": "Spot names on cards and subsection heads." },
-      "gloss": { "displayName": "Gloss", "purpose": "The English translation beneath an Albanian line, italic display in the accent colour. Never an eyebrow." },
-      "body-lg": { "displayName": "Body Large", "purpose": "Section openers and long reading passages, capped at a 62ch measure." },
-      "body": { "displayName": "Body", "purpose": "Notes, sourcing, asides and control labels." },
-      "reading": { "displayName": "Reading", "purpose": "Tracked uppercase for measurements, tags and the clock readout only." }
+      "display-xl": {
+        "displayName": "Display XL",
+        "purpose": "Section-opening statements and the largest headings. Source Serif 4 at 600 with tight tracking."
+      },
+      "wordmark": {
+        "displayName": "Wordmark",
+        "purpose": "The word Nëqoshe only. Letters rise from weight 200 to 520 as if light crossed them left to right; the diaeresis is part of the mark and never drops."
+      },
+      "display": {
+        "displayName": "Display",
+        "purpose": "Section headings, spot names, the hour readout, and large numerals such as the work score."
+      },
+      "gloss": {
+        "displayName": "Gloss",
+        "purpose": "The English translation directly under an Albanian line, italic display in the accent colour. Never a tracked uppercase label or kicker."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default page text. Tabular numerals on, font-synthesis-weight off."
+      },
+      "body-lg": {
+        "displayName": "Body Large",
+        "purpose": "Opening paragraphs, set in the soft ink and capped at 66ch."
+      },
+      "reading": {
+        "displayName": "Reading",
+        "purpose": "The label voice for measurements and controls: dial ticks, facet counts, detail field names. Larger and less tracked than a typical micro-label because it carries real values."
+      }
     },
     "shadows": [
-      { "name": "lift-sm", "value": "0 2px 8px -2px var(--lift)", "purpose": "Small resting plates. Warm, tinted to the act's lift colour." },
-      { "name": "lift-md", "value": "0 8px 20px -10px var(--lift), 0 2px 6px -4px var(--lift)", "purpose": "Panels that need to sit above their ground." },
-      { "name": "lift-lg", "value": "0 30px 60px -30px var(--lift), 0 10px 24px -18px var(--lift)", "purpose": "The hero plate and full-height photographic objects." },
-      { "name": "meter-dot-glow", "value": "0 0 14px 3px rgba(216,154,74,0.6)", "purpose": "The travelling brass dot on the light meter; the only glow in the system." }
+      {
+        "name": "lift-sm",
+        "value": "0 2px 8px -2px var(--lift)",
+        "purpose": "Barely-off-the-page surfaces."
+      },
+      {
+        "name": "lift-md",
+        "value": "0 8px 20px -10px var(--lift), 0 2px 6px -4px var(--lift)",
+        "purpose": "Raised panels."
+      },
+      {
+        "name": "lift-lg",
+        "value": "0 30px 60px -30px var(--lift), 0 10px 24px -18px var(--lift)",
+        "purpose": "The hero image plate: the one object allowed to float."
+      },
+      {
+        "name": "lift-token-light",
+        "value": "rgb(36 24 18 / 0.1)",
+        "purpose": "The --lift shadow colour in the dawn act. Warm espresso, never neutral grey."
+      },
+      {
+        "name": "lift-token-night",
+        "value": "rgb(0 0 0 / 0.5)",
+        "purpose": "The --lift shadow colour in the night act."
+      },
+      {
+        "name": "dial-halo",
+        "value": "0 0 0 5px color-mix(in oklab, var(--accent) 18%, transparent)",
+        "purpose": "The soft ring around the hour-dial handle."
+      },
+      {
+        "name": "chrome-frost",
+        "value": "backdrop-filter: blur(14px); background: color-mix(in oklab, var(--ground) 82%, transparent)",
+        "purpose": "The fixed top bar's plate. The only large frosted surface."
+      },
+      {
+        "name": "badge-frost",
+        "value": "backdrop-filter: blur(6px); background: rgba(26,18,12,0.72)",
+        "purpose": "Small status badges floating on a photograph (open, work score, note icons)."
+      }
     ],
     "motion": [
-      { "name": "ease-light", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Exponential out. Everything that enters." },
-      { "name": "ease-settle", "value": "cubic-bezier(0.32, 0.72, 0, 1)", "purpose": "Things that settle into place under their own weight: the top bar, the preloader wipe." },
-      { "name": "ease-move", "value": "cubic-bezier(0.65, 0, 0.35, 1)", "purpose": "Symmetric. Things that cross the screen." },
-      { "name": "reveal", "value": "duration 0.9s, ease-light", "purpose": "Standard entrance: opacity, 22px rise, 10px blur clearing." },
-      { "name": "reveal-slow", "value": "duration 1.25s, ease-light", "purpose": "Large plates and headline word reveals." },
-      { "name": "stagger-sibling", "value": "60-100ms", "purpose": "Delay between adjacent revealed siblings; 45ms between words." },
-      { "name": "spring-cursor", "value": "stiffness 90, damping 18, mass 0.7", "purpose": "Cursor-tracked light and plate lean. Loose enough to have momentum." },
-      { "name": "spring-ui", "value": "stiffness 260, damping 28, mass 0.6", "purpose": "UI settle." },
-      { "name": "act-crossfade", "value": "color 450ms ease, background-color 450ms ease", "purpose": "Fixed chrome and the light meter changing acts." }
+      {
+        "name": "ease-light",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Exponential out. Everything that enters, plus every hover and act cross-fade."
+      },
+      {
+        "name": "ease-settle",
+        "value": "cubic-bezier(0.32, 0.72, 0, 1)",
+        "purpose": "iOS drawer curve. Things that settle into place under their own weight: the top bar, the preloader wipe."
+      },
+      {
+        "name": "ease-move",
+        "value": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "purpose": "Symmetric. Things that travel across the screen."
+      },
+      {
+        "name": "act-fade",
+        "value": "background-color 700ms var(--ease-light), border-color 700ms, color 700ms, fill 700ms",
+        "purpose": "Because custom properties do not transition but the properties consuming them do. Required on any act that can change while the visitor watches."
+      },
+      {
+        "name": "reveal",
+        "value": "duration 1s, ease-light, y 22px, blur 10px, viewport once amount 0.35",
+        "purpose": "The page's one entrance behaviour. Under reduced motion the element is simply already there."
+      },
+      {
+        "name": "press",
+        "value": "transform 150ms, active scale 0.96-0.97",
+        "purpose": "Every control presses rather than glows."
+      },
+      {
+        "name": "reduced-motion-floor",
+        "value": "animation-duration 0.01ms; transition-duration 120ms",
+        "purpose": "Reduced motion gets a full static composition, not a disabled one."
+      }
     ],
     "breakpoints": [
       { "name": "sm", "value": "640px" },
@@ -175,121 +302,184 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "The page's call to act. Accent fill, on-accent text, with a deep-terracotta wipe growing from the left on hover.",
-      "html": "<a class=\"ds-btn-primary\" href=\"#qoshet\"><span aria-hidden=\"true\" class=\"ds-btn-primary__wipe\"></span><span class=\"ds-btn-primary__label\">Gjej këndin tënd</span></a>",
-      "css": ".ds-btn-primary { position: relative; display: inline-flex; align-items: center; overflow: hidden; border-radius: 999px; padding: 0.9rem 1.75rem; font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.9375rem; font-weight: 500; white-space: nowrap; text-decoration: none; background: var(--accent, #c1512f); color: var(--on-accent, #faf3e7); transition: transform 150ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary__wipe { position: absolute; inset: 0; transform: scaleX(0); transform-origin: left; background: #8f3a1f; transition: transform 500ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary__label { position: relative; } .ds-btn-primary:hover .ds-btn-primary__wipe { transform: scaleX(1); } .ds-btn-primary:active { transform: scale(0.975); } .ds-btn-primary:focus-visible { outline: 2px solid var(--accent, #c1512f); outline-offset: 3px; }"
+      "description": "The page's call to action: accent pill, on-accent text, icon right. Presses rather than glows.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#gjej\">Gjej këndin tënd <svg viewBox=\"0 0 256 256\" width=\"16\" height=\"16\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M205.66 149.66l-72 72a8 8 0 0 1-11.32 0l-72-72a8 8 0 0 1 11.32-11.32L120 196.69V40a8 8 0 0 1 16 0v156.69l58.34-58.35a8 8 0 0 1 11.32 11.32z\"/></svg></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--accent, #b34724); color: var(--on-accent, #faf3e7); border: none; border-radius: 999px; padding: 0.75rem 1.5rem; font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.9375rem; font-weight: 500; white-space: nowrap; text-decoration: none; cursor: pointer; transition: transform 150ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary:hover { transform: translateY(-1px); } .ds-btn-primary:active { transform: scale(0.97); } .ds-btn-primary:focus-visible { outline: 2px solid var(--accent, #b34724); outline-offset: 3px; border-radius: 999px; }"
     },
     {
       "name": "Ghost Button",
       "kind": "button",
       "refersTo": "button-ghost",
-      "description": "The secondary action. A hairline rule pill on the act's ground, ink text, no fill.",
-      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Shih një qoshe</a>",
-      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; border-radius: 999px; padding: 0.9rem 1.5rem; border: 1px solid var(--rule, rgb(36 24 18 / 0.13)); background: transparent; color: var(--ink, #241812); font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.9375rem; font-weight: 500; white-space: nowrap; text-decoration: none; transition: color 200ms ease, border-color 200ms ease, transform 150ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-ghost:hover { color: var(--accent, #c1512f); border-color: color-mix(in oklab, var(--accent, #c1512f) 45%, transparent); } .ds-btn-ghost:active { transform: scale(0.975); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--accent, #c1512f); outline-offset: 3px; }"
+      "description": "Secondary action: hairline rule border, ink text, same pill silhouette.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#radio\">Vër muzikë</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: var(--ink, #241812); border: 1px solid var(--rule, rgb(36 24 18 / 0.15)); border-radius: 999px; padding: 0.75rem 1.25rem; font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.9375rem; font-weight: 500; white-space: nowrap; text-decoration: none; cursor: pointer; transition: transform 150ms cubic-bezier(0.16,1,0.3,1), border-color 200ms; } .ds-btn-ghost:hover { border-color: var(--accent, #b34724); } .ds-btn-ghost:active { transform: scale(0.97); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--accent, #b34724); outline-offset: 3px; }"
+    },
+    {
+      "name": "Facet Chip",
+      "kind": "chip",
+      "refersTo": "chip-facet",
+      "description": "A filter you press. Carries its own Phosphor icon and the count of places it would leave you with, so a dead end is visible before you hit it.",
+      "html": "<div style=\"display:flex;gap:0.5rem;flex-wrap:wrap\"><button class=\"ds-chip\"><svg viewBox=\"0 0 256 256\" width=\"17\" height=\"17\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M232 72H24a8 8 0 0 0 0 16h8v96H16a8 8 0 0 0 0 16h224a8 8 0 0 0 0-16h-16V88h8a8 8 0 0 0 0-16zM48 88h160v96H48z\"/></svg>Laptop<span class=\"ds-chip-n\">16</span></button><button class=\"ds-chip ds-chip-on\" aria-pressed=\"true\"><svg viewBox=\"0 0 256 256\" width=\"17\" height=\"17\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24zm8 104V72a8 8 0 0 0-16 0v56a8 8 0 0 0 3.56 6.66l40 26.67a8 8 0 1 0 8.88-13.32z\"/></svg>Hapur tani<span class=\"ds-chip-n\">9</span></button><button class=\"ds-chip\" disabled>Nën €2<span class=\"ds-chip-n\">0</span></button></div>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: var(--ink-2, #634c3b); border: 1px solid var(--rule, rgb(36 24 18 / 0.15)); border-radius: 999px; padding: 0.5rem 0.875rem; font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; white-space: nowrap; cursor: pointer; transition: transform 200ms cubic-bezier(0.16,1,0.3,1), background-color 200ms, border-color 200ms, color 200ms; } .ds-chip-n { font-size: 0.625rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-variant-numeric: tabular-nums; color: var(--ink-3, #755e45); } .ds-chip:hover svg { transform: translateY(-1px); } .ds-chip svg { transition: transform 300ms cubic-bezier(0.16,1,0.3,1); } .ds-chip:active { transform: scale(0.96); } .ds-chip:focus-visible { outline: 2px solid var(--accent, #b34724); outline-offset: 3px; } .ds-chip-on { background: var(--accent, #b34724); border-color: var(--accent, #b34724); color: var(--on-accent, #faf3e7); } .ds-chip-on .ds-chip-n { color: var(--on-accent, #faf3e7); opacity: 0.75; } .ds-chip[disabled] { opacity: 0.35; cursor: not-allowed; }"
     },
     {
       "name": "Quality Tag",
       "kind": "chip",
       "refersTo": "chip-quality",
-      "description": "Olive pigment marking a quality — a vibe or a use. Outline only; olive is never a fill.",
-      "html": "<ul class=\"ds-tag-row\"><li class=\"ds-tag-quality\">slow mornings</li><li class=\"ds-tag-quality\">long sit</li></ul>",
-      "css": ".ds-tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0; padding: 0; list-style: none; } .ds-tag-quality { border-radius: 999px; padding: 0.5rem 0.875rem; border: 1px solid color-mix(in oklab, var(--moss, #4e5c38) 40%, transparent); color: var(--moss, #4e5c38); background: transparent; font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }"
-    },
-    {
-      "name": "Reading Strip",
-      "kind": "custom",
-      "refersTo": "card-spot",
-      "description": "Label/value measurement pairs with no dividers, followed by the unknowns named out loud. A null never becomes a zero or a dash.",
-      "html": "<div class=\"ds-readings\"><dl class=\"ds-readings__list\"><div class=\"ds-readings__pair\"><dt class=\"ds-readings__label\">Zhurma</dt><dd class=\"ds-readings__value\">E qetë</dd></div><div class=\"ds-readings__pair\"><dt class=\"ds-readings__label\">Wifi</dt><dd class=\"ds-readings__value\">48 Mbps</dd></div><div class=\"ds-readings__pair\"><dt class=\"ds-readings__label\">Kafe</dt><dd class=\"ds-readings__value\">€1.5</dd></div></dl><p class=\"ds-readings__unknown\">S&rsquo;e dimë ende: prizat, orari.</p></div>",
-      "css": ".ds-readings { border-top: 1px solid var(--rule, rgb(36 24 18 / 0.13)); padding-top: 0.875rem; } .ds-readings__list { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 1.25rem; row-gap: 0.5rem; margin: 0; padding: 0; } .ds-readings__pair { display: flex; align-items: baseline; gap: 0.375rem; } .ds-readings__label { font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3, #7b6349); } .ds-readings__value { margin: 0; font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.8125rem; font-weight: 500; line-height: 1; font-variant-numeric: tabular-nums; color: var(--ink-2, #6b5341); } .ds-readings__unknown { margin: 0.625rem 0 0; font-size: 0.75rem; line-height: 1.45; font-style: italic; color: var(--ink-3, #7b6349); }"
+      "description": "A vibe or use, in the counter-pigment. Moss marks a quality; it never marks a reading.",
+      "html": "<div style=\"display:flex;gap:0.5rem;flex-wrap:wrap\"><span class=\"ds-tag\">calm</span><span class=\"ds-tag\">bookish</span><span class=\"ds-tag\">community</span></div>",
+      "css": ".ds-tag { display: inline-flex; align-items: center; border: 1px solid color-mix(in oklab, var(--moss, #4a5834) 40%, transparent); color: var(--moss, #4a5834); border-radius: 999px; padding: 0.5rem 0.875rem; font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }"
     },
     {
       "name": "Spot Card",
       "kind": "card",
       "refersTo": "card-spot",
-      "description": "A square photographic plate plus a text block — not a boxed card. Vibe tags and the work score live on the plate; readings sit under the rule.",
-      "html": "<article class=\"ds-card\"><a class=\"ds-card__link\" href=\"#\"><div class=\"ds-card__plate\"><div class=\"ds-card__img\"></div><div class=\"ds-card__scrim\" aria-hidden=\"true\"></div><ul class=\"ds-card__tags\"><li>long sit</li><li>quiet</li></ul><div class=\"ds-card__score\"><span class=\"ds-card__score-label\">Punë</span><span class=\"ds-card__score-value\">8.4</span></div></div><div class=\"ds-card__body\"><div class=\"ds-card__head\"><h4 class=\"ds-card__name\">Streha</h4><span class=\"ds-card__arrow\" aria-hidden=\"true\">&rarr;</span></div><p class=\"ds-card__meta\">Blloku / Kafe specialty</p></div></a></article>",
-      "css": ".ds-card__link { display: block; height: 100%; text-decoration: none; } .ds-card__plate { position: relative; overflow: hidden; aspect-ratio: 4 / 5; background: #7b6349; transition: transform 520ms cubic-bezier(0.16,1,0.3,1); } .ds-card__img { position: absolute; inset: 0; background: linear-gradient(140deg, #8b6440 0%, #4b3220 60%, #2a1a10 100%); transition: transform 900ms cubic-bezier(0.16,1,0.3,1), filter 900ms cubic-bezier(0.16,1,0.3,1); } .ds-card__scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,18,12,0.86) 0%, rgba(26,18,12,0.22) 34%, rgba(26,18,12,0) 62%); } .ds-card__link:hover .ds-card__plate { transform: translateY(-4px); } .ds-card__link:hover .ds-card__img { transform: scale(1.045); filter: brightness(1.06) saturate(1.08); } .ds-card__tags { position: absolute; left: 1rem; right: 1rem; bottom: 1rem; display: flex; flex-wrap: wrap; gap: 0.375rem; margin: 0; padding: 0; list-style: none; opacity: 0; transform: translateY(8px); transition: opacity 500ms cubic-bezier(0.16,1,0.3,1), transform 500ms cubic-bezier(0.16,1,0.3,1); } .ds-card__tags li { border-radius: 999px; padding: 0.25rem 0.625rem; background: rgba(250,243,231,0.14); backdrop-filter: blur(6px); color: #e6efd2; font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; } .ds-card__link:hover .ds-card__tags, .ds-card__link:focus-visible .ds-card__tags { opacity: 1; transform: translateY(0); } .ds-card__score { position: absolute; top: 1rem; right: 1rem; display: flex; align-items: baseline; gap: 0.25rem; border-radius: 999px; padding: 0.375rem 0.75rem; background: rgba(26,18,12,0.62); backdrop-filter: blur(8px); } .ds-card__score-label { font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,243,231,0.72); } .ds-card__score-value { font-family: 'Piazzolla Variable', ui-serif, Georgia, serif; font-weight: 500; font-size: 0.95rem; line-height: 1; color: #d89a4a; } .ds-card__body { padding-top: 1rem; } .ds-card__head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; } .ds-card__name { margin: 0; font-family: 'Piazzolla Variable', ui-serif, Georgia, serif; font-weight: 500; letter-spacing: -0.03em; font-size: 1.375rem; line-height: 1.18; color: var(--ink, #241812); } .ds-card__arrow { color: var(--accent, #c1512f); font-size: 0.9rem; transition: transform 300ms cubic-bezier(0.16,1,0.3,1); } .ds-card__link:hover .ds-card__arrow { transform: translateX(4px); } .ds-card__meta { margin: 0.375rem 0 0; font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3, #7b6349); } .ds-card__link:focus-visible { outline: 2px solid var(--accent, #c1512f); outline-offset: 4px; }"
+      "description": "One corner in the list: square plate, hairline border, readings strip beneath a rule, and the unknowns named out loud rather than shown as zeros.",
+      "html": "<a class=\"ds-card\" href=\"#\"><div class=\"ds-card-plate\"><span class=\"ds-card-badge\">Hapur</span></div><div class=\"ds-card-body\"><div class=\"ds-card-head\"><h3 class=\"ds-card-title\">Streha</h3><svg viewBox=\"0 0 256 256\" width=\"17\" height=\"17\" fill=\"currentColor\" class=\"ds-card-arrow\" aria-hidden=\"true\"><path d=\"M200 64v104a8 8 0 0 1-16 0V83.31L69.66 197.66a8 8 0 0 1-11.32-11.32L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8z\"/></svg></div><p class=\"ds-card-meta\">Qendra · Libraria me kafe</p><div class=\"ds-card-readings\"><span>Qetë</span><span>35 Mbps</span><span>Priza</span><span>07:00–23:00</span></div><p class=\"ds-card-unknown\">S&rsquo;e dimë ende: çmimi, jashtë.</p></div></a>",
+      "css": ".ds-card { display: flex; flex-direction: column; overflow: hidden; text-decoration: none; background: var(--ground-2, #f2e5cf); border: 1px solid var(--rule, rgb(36 24 18 / 0.15)); border-radius: 0; color: var(--ink, #241812); transition: transform 300ms cubic-bezier(0.16,1,0.3,1); max-width: 22rem; } .ds-card:hover { transform: translateY(-4px); } .ds-card:focus-visible { outline: 2px solid var(--accent, #b34724); outline-offset: 3px; } .ds-card-plate { position: relative; aspect-ratio: 16 / 10; background: linear-gradient(160deg, #c8b190, #8a6a45); } .ds-card-badge { position: absolute; top: 0.75rem; left: 0.75rem; background: rgba(26,18,12,0.72); backdrop-filter: blur(6px); color: #9AD37F; border-radius: 999px; padding: 0.25rem 0.625rem; font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.625rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; } .ds-card-body { padding: 1.25rem; } .ds-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; } .ds-card-title { margin: 0; font-family: 'Source Serif 4 Variable', ui-serif, Georgia, serif; font-weight: 600; font-size: 1.15rem; line-height: 1.2; letter-spacing: -0.012em; } .ds-card-arrow { color: var(--accent, #b34724); flex-shrink: 0; margin-top: 0.25rem; transition: transform 300ms cubic-bezier(0.16,1,0.3,1); } .ds-card:hover .ds-card-arrow { transform: translate(2px, -2px); } .ds-card-meta { margin: 0.375rem 0 0; font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.8125rem; color: var(--ink-3, #755e45); } .ds-card-readings { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--rule, rgb(36 24 18 / 0.15)); font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.8125rem; font-weight: 500; color: var(--ink-2, #634c3b); } .ds-card-unknown { margin: 0.625rem 0 0; font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.78rem; font-style: italic; line-height: 1.45; color: var(--ink-3, #755e45); }"
     },
     {
-      "name": "Email Field",
+      "name": "No-Photograph Panel",
+      "kind": "card",
+      "refersTo": "card-spot",
+      "description": "Fourteen of twenty-nine places have no plate. Those get a designed panel — category icon in moss, up to three vibe tags, an honest label — never an empty rectangle.",
+      "html": "<div class=\"ds-noplate\"><svg viewBox=\"0 0 256 256\" width=\"28\" height=\"28\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M222 120h-6V56a24 24 0 0 0-24-24H64a24 24 0 0 0-24 24v64h-6a14 14 0 0 0-14 14v26a38 38 0 0 0 38 38h140a38 38 0 0 0 38-38v-26a14 14 0 0 0-14-14zM56 56a8 8 0 0 1 8-8h128a8 8 0 0 1 8 8v64H56z\"/></svg><p class=\"ds-noplate-tags\">calm · bookish · community</p><span class=\"ds-noplate-label\">Pa foto ende</span></div>",
+      "css": ".ds-noplate { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; aspect-ratio: 16 / 10; max-width: 22rem; background: var(--ground, #faf3e7); border: 1px solid var(--rule, rgb(36 24 18 / 0.15)); color: var(--moss, #4a5834); } .ds-noplate > svg { opacity: 0.6; } .ds-noplate-tags { margin: 0; max-width: 80%; text-align: center; font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.8125rem; line-height: 1.375; color: var(--ink-2, #634c3b); } .ds-noplate-label { font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.625rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3, #755e45); }"
+    },
+    {
+      "name": "Hour Dial",
       "kind": "input",
-      "refersTo": "input-email",
-      "description": "Pill field on the act's second ground with a hairline rule, paired inline with a primary pill button.",
-      "html": "<form class=\"ds-field-row\"><input class=\"ds-input-email\" type=\"email\" placeholder=\"ti@shembull.al\" aria-label=\"Email\" /><button class=\"ds-field-submit\" type=\"submit\">Më njofto</button></form>",
-      "css": ".ds-field-row { display: flex; gap: 0.5rem; } .ds-input-email { flex: 1 1 auto; min-width: 0; border-radius: 999px; padding: 0.75rem 1.25rem; background: color-mix(in oklab, var(--ground-2, #f2e5cf) 90%, transparent); border: 1px solid var(--rule, rgb(36 24 18 / 0.13)); color: var(--ink, #241812); caret-color: var(--accent, #c1512f); font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.9375rem; outline: none; } .ds-input-email::placeholder { color: var(--ink-3, #7b6349); opacity: 1; } .ds-input-email:focus-visible { outline: 2px solid var(--accent, #c1512f); outline-offset: 3px; } .ds-input-email[aria-invalid='true'] { border-color: #e4703f; } .ds-field-submit { border: none; border-radius: 999px; padding: 0.75rem 1.25rem; background: var(--accent, #c1512f); color: var(--on-accent, #faf3e7); font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; white-space: nowrap; transition: transform 150ms cubic-bezier(0.16,1,0.3,1); } .ds-field-submit:active { transform: scale(0.97); } .ds-field-submit:focus-visible { outline: 2px solid var(--accent, #c1512f); outline-offset: 3px; }"
+      "refersTo": "hour-dial",
+      "description": "The page's one input. The hour defaults to the visitor's own clock and drives the 3D sun, the finder's act and open/closed filtering. Quarter-hour steps by pointer or arrow key.",
+      "html": "<div class=\"ds-dial\"><div class=\"ds-dial-head\"><span class=\"ds-dial-time\">18:45</span><span class=\"ds-dial-now\">Tani</span></div><div class=\"ds-dial-track\" role=\"slider\" tabindex=\"0\" aria-label=\"Ora e ditës\" aria-valuemin=\"6\" aria-valuemax=\"24\" aria-valuenow=\"18.75\" aria-valuetext=\"18:45\"><span class=\"ds-dial-rail\"></span><span class=\"ds-dial-fill\"></span><span class=\"ds-dial-tick\" style=\"left:0%\"><i></i><b>06</b></span><span class=\"ds-dial-tick\" style=\"left:33.33%\"><i></i><b>12</b></span><span class=\"ds-dial-tick\" style=\"left:66.67%\"><i></i><b>18</b></span><span class=\"ds-dial-tick\" style=\"left:100%\"><i></i><b>24</b></span><span class=\"ds-dial-handle\"></span></div></div>",
+      "css": ".ds-dial { width: 100%; max-width: 30rem; } .ds-dial-head { display: flex; align-items: baseline; gap: 0.75rem; } .ds-dial-time { font-family: 'Source Serif 4 Variable', ui-serif, Georgia, serif; font-weight: 600; letter-spacing: -0.012em; font-size: clamp(2.4rem, 5vw, 3.4rem); line-height: 1; color: var(--accent, #b34724); font-variant-numeric: tabular-nums; } .ds-dial-now { font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3, #755e45); } .ds-dial-track { position: relative; height: 2.75rem; margin-top: 1.5rem; cursor: ew-resize; touch-action: none; user-select: none; } .ds-dial-track:focus-visible { outline: 2px solid var(--accent, #b34724); outline-offset: 3px; border-radius: 3px; } .ds-dial-rail { position: absolute; left: 0; right: 0; top: 50%; height: 1px; transform: translateY(-50%); background: var(--rule, rgb(36 24 18 / 0.15)); } .ds-dial-fill { position: absolute; left: 0; width: 70.8%; top: 50%; height: 1px; transform: translateY(-50%); background: var(--accent, #b34724); } .ds-dial-tick { position: absolute; top: 50%; } .ds-dial-tick i { position: absolute; top: -0.25rem; display: block; width: 1px; height: 0.5rem; background: var(--rule, rgb(36 24 18 / 0.15)); } .ds-dial-tick b { position: absolute; top: 0.75rem; transform: translateX(-50%); font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.625rem; font-weight: 600; letter-spacing: 0.06em; color: var(--ink-3, #755e45); font-variant-numeric: tabular-nums; } .ds-dial-handle { position: absolute; top: 50%; left: 70.8%; width: 1rem; height: 1rem; transform: translate(-50%, -50%); border-radius: 999px; background: var(--accent, #b34724); box-shadow: 0 0 0 5px color-mix(in oklab, var(--accent, #b34724) 18%, transparent); }"
     },
     {
       "name": "Top Bar",
       "kind": "nav",
-      "refersTo": "nav-bar",
-      "description": "Fixed chrome that only exists after the hero. Ground at 82% with a 14px backdrop blur, a hairline bottom rule, and the act class applied from whichever act sits under the viewport top.",
-      "html": "<header class=\"ds-topbar\"><nav class=\"ds-topbar__inner\"><a class=\"ds-topbar__mark\" href=\"/\">Nëqoshe</a><a class=\"ds-topbar__cta\" href=\"#qoshet\">Gjej këndin tënd</a></nav></header>",
-      "css": ".ds-topbar { position: relative; height: 4.5rem; background: color-mix(in oklab, var(--ground, #faf3e7) 82%, transparent); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule, rgb(36 24 18 / 0.13)); transition: color 450ms ease, background-color 450ms ease; } .ds-topbar__inner { display: flex; height: 100%; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 0 2.5rem; } .ds-topbar__mark { font-family: 'Piazzolla Variable', ui-serif, Georgia, serif; font-weight: 520; letter-spacing: -0.035em; font-size: 1.25rem; line-height: 0.92; color: var(--ink, #241812); text-decoration: none; } .ds-topbar__cta { border-radius: 999px; padding: 0.5rem 1.25rem; background: var(--accent, #c1512f); color: var(--on-accent, #faf3e7); font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.8125rem; font-weight: 500; white-space: nowrap; text-decoration: none; transition: transform 150ms cubic-bezier(0.16,1,0.3,1); } .ds-topbar__cta:active { transform: scale(0.97); } .ds-topbar__cta:focus-visible { outline: 2px solid var(--accent, #c1512f); outline-offset: 3px; }"
+      "refersTo": "nav",
+      "description": "Fixed chrome that does not exist until the hero has scrolled away, so the first viewport belongs to the wordmark alone. It sits outside every act and applies whichever act is under the viewport top.",
+      "html": "<header class=\"ds-nav\"><div class=\"ds-nav-plate\"></div><nav class=\"ds-nav-inner\"><a class=\"ds-nav-mark\" href=\"/\">Nëqoshe</a><a class=\"ds-nav-cta\" href=\"#qoshet\">Gjej këndin tënd</a></nav></header>",
+      "css": ".ds-nav { position: relative; height: 4.5rem; width: 100%; } .ds-nav-plate { position: absolute; inset: 0; background: color-mix(in oklab, var(--ground, #faf3e7) 82%, transparent); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule, rgb(36 24 18 / 0.15)); } .ds-nav-inner { position: relative; display: flex; height: 100%; align-items: center; justify-content: space-between; gap: 1.5rem; padding-inline: 2.5rem; } .ds-nav-mark { font-family: 'Source Serif 4 Variable', ui-serif, Georgia, serif; font-weight: 520; font-size: 1.25rem; letter-spacing: -0.035em; line-height: 0.92; color: var(--ink, #241812); text-decoration: none; } .ds-nav-cta { background: var(--accent, #b34724); color: var(--on-accent, #faf3e7); border-radius: 999px; padding: 0.5rem 1.25rem; font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.8125rem; font-weight: 500; white-space: nowrap; text-decoration: none; transition: transform 150ms; } .ds-nav-cta:active { transform: scale(0.97); }"
     },
     {
-      "name": "Light Meter Readout",
+      "name": "Local Note",
       "kind": "custom",
+      "refersTo": "note-panel",
+      "description": "One of five kinds of hand-written note (wifi, view, corner, tip, heads-up), each with its own icon, all of them in the moss counter-pigment. A note that does not exist yet is drawn as a dashed row that names the gap.",
+      "html": "<div style=\"display:flex;flex-direction:column;gap:0.75rem;max-width:34rem\"><div class=\"ds-note\"><svg viewBox=\"0 0 256 256\" width=\"18\" height=\"18\" fill=\"currentColor\" class=\"ds-note-icon\" aria-hidden=\"true\"><path d=\"M240 136a16 16 0 0 0-16-16h-8V96a24 24 0 0 0-24-24H64a24 24 0 0 0-24 24v24h-8a16 16 0 0 0-16 16v40a8 8 0 0 0 16 0v-8h192v8a8 8 0 0 0 16 0zM56 96a8 8 0 0 1 8-8h128a8 8 0 0 1 8 8v24H56z\"/></svg><div><span class=\"ds-note-kind\">Qoshja</span><p class=\"ds-note-sq\">Muri me libra në fund të sallës, pranë tryezës së gjatë.</p><p class=\"ds-note-en\">The book wall at the back of the room, by the long shared table.</p></div></div><div class=\"ds-note-gap\"><svg viewBox=\"0 0 256 256\" width=\"16\" height=\"16\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M216.57 39.43a32 32 0 0 0-45.14 0l-71.6 71.6a56 56 0 1 0 45.14 45.14l16.6-16.6 20.69 20.69a8 8 0 0 0 11.31-11.32L173 128l43.6-43.43a32 32 0 0 0-.03-45.14zM64 208a24 24 0 1 1 24-24 24 24 0 0 1-24 24z\"/></svg><span>Fjalëkalimi i wifi-t: s&rsquo;e dimë ende. · No wifi password recorded yet.</span></div></div>",
+      "css": ".ds-note { display: flex; gap: 0.75rem; padding: 1rem; border-radius: 0; background: color-mix(in oklab, var(--moss, #4a5834) 8%, transparent); border: 1px solid color-mix(in oklab, var(--moss, #4a5834) 22%, transparent); } .ds-note-icon { color: var(--moss, #4a5834); flex-shrink: 0; margin-top: 0.125rem; } .ds-note-kind { font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--moss, #4a5834); } .ds-note-sq { margin: 0.375rem 0 0; font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.95rem; line-height: 1.6; color: var(--ink, #241812); } .ds-note-en { margin: 0.25rem 0 0; font-family: 'Source Serif 4 Variable', ui-serif, Georgia, serif; font-style: italic; font-size: 0.9rem; line-height: 1.4; color: var(--ink-3, #755e45); } .ds-note-gap { display: flex; align-items: center; gap: 0.625rem; padding: 0.875rem 1rem; border: 1px dashed var(--rule, rgb(36 24 18 / 0.15)); color: var(--ink-3, #755e45); font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; font-style: italic; font-size: 0.875rem; }"
+    },
+    {
+      "name": "Readout Plate",
+      "kind": "card",
       "refersTo": "readout-plate",
-      "description": "The clock made visible: a brass rail with hour ticks, a glowing travelling dot, and a readout plate one shade darker than the act's own ground so it survives cream, midnight and photography alike.",
-      "html": "<div class=\"ds-meter\"><div class=\"ds-meter__rail\"><span class=\"ds-meter__tick\" style=\"top:16%\"></span><span class=\"ds-meter__tick\" style=\"top:33%\"></span><span class=\"ds-meter__tick\" style=\"top:50%\"></span><span class=\"ds-meter__tick\" style=\"top:67%\"></span><span class=\"ds-meter__tick\" style=\"top:84%\"></span><span class=\"ds-meter__dot\" style=\"top:41%\"></span></div><span class=\"ds-meter__readout\">14:12</span></div>",
-      "css": ".ds-meter { position: relative; height: 16rem; width: 4rem; } .ds-meter__rail { position: relative; height: 100%; width: 1px; margin-left: 2.4rem; background: rgba(216,154,74,0.48); } .ds-meter__tick { position: absolute; right: 0; height: 1px; width: 0.625rem; background: rgba(216,154,74,0.68); } .ds-meter__dot { position: absolute; left: -3.5px; height: 0.5rem; width: 0.5rem; border-radius: 999px; background: #e9ae63; box-shadow: 0 0 14px 3px rgba(216,154,74,0.6); } .ds-meter__readout { position: absolute; top: 100%; right: 0; display: block; padding: 0.375rem 0.375rem 0.25rem; background: var(--readout-plate, rgb(237 225 200 / 0.92)); border-top: 1px solid rgba(216,154,74,0.48); color: var(--ink-2, #6b5341); font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; font-variant-numeric: tabular-nums; white-space: nowrap; transition: color 450ms ease, background 450ms ease; }"
+      "description": "The spot detail's workability panel: a square tinted plate carrying the work score, then the known readings in the reading voice, with unknown fields set in italic as 'nuk dihet' rather than blanked.",
+      "html": "<div class=\"ds-plate\"><div class=\"ds-plate-score\"><span class=\"ds-plate-num\">9</span><span class=\"ds-plate-of\">nga 10, sipas burimeve<br><i>work score, from the sources</i></span></div><dl class=\"ds-plate-grid\"><div><dt>Zhurma</dt><dd>Qetë</dd></div><div><dt>Laptop</dt><dd>I mirëpritur</dd></div><div><dt>Wifi</dt><dd>35 Mbps</dd></div><div><dt>Pagesa</dt><dd class=\"ds-plate-unknown\">nuk dihet</dd></div></dl></div>",
+      "css": ".ds-plate { background: var(--readout-plate, rgb(237 225 200 / 0.92)); border-radius: 0; padding: 2rem; max-width: 24rem; color: var(--ink, #241812); } .ds-plate-score { display: flex; align-items: baseline; gap: 0.75rem; } .ds-plate-num { font-family: 'Source Serif 4 Variable', ui-serif, Georgia, serif; font-weight: 600; font-size: 3.4rem; line-height: 1; color: var(--accent, #b34724); font-variant-numeric: tabular-nums; } .ds-plate-of { font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; line-height: 1.5; color: var(--ink-2, #634c3b); } .ds-plate-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin: 1.5rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--rule, rgb(36 24 18 / 0.15)); } .ds-plate-grid dt { font-family: 'Source Sans 3 Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3, #755e45); } .ds-plate-grid dd { margin: 0.25rem 0 0; font-family: 'Source Serif 4 Variable', ui-serif, Georgia, serif; font-weight: 600; font-size: 1.15rem; letter-spacing: -0.012em; } .ds-plate-unknown { font-family: 'Source Serif 4 Variable', ui-serif, Georgia, serif !important; font-style: italic; font-weight: 400 !important; color: var(--ink-3, #755e45); }"
     },
     {
-      "name": "Headline and Gloss",
+      "name": "Albanian Heading with Gloss",
       "kind": "custom",
-      "refersTo": "display",
-      "description": "The house type pairing: Albanian leads in tight Piazzolla, English supports beneath in italic display in the accent colour. Never a tracked uppercase eyebrow.",
-      "html": "<div class=\"ds-headline\"><h2 class=\"ds-headline__sq\">Qoshet, sipas asaj që kërkon.</h2><p class=\"ds-headline__gloss\">Corners, by what you are looking for.</p><p class=\"ds-headline__body\">Places across Tirana, grouped by what the afternoon is actually for. Tap any corner for the full reading.</p></div>",
-      "css": ".ds-headline__sq { margin: 0; font-family: 'Piazzolla Variable', ui-serif, Georgia, serif; font-weight: 500; letter-spacing: -0.03em; line-height: 1.03; font-size: clamp(2.2rem, 6vw, 4.2rem); text-wrap: balance; color: var(--ink, #241812); } .ds-headline__gloss { margin: 0.75rem 0 0; font-family: 'Piazzolla Variable', ui-serif, Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -0.005em; line-height: 1.35; font-size: 1.0625rem; color: var(--accent, #c1512f); } .ds-headline__body { margin: 1.5rem 0 0; max-width: 62ch; font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: clamp(1.0625rem, 0.95rem + 0.5vw, 1.3125rem); line-height: 1.6; text-wrap: pretty; color: var(--ink-2, #6b5341); }"
+      "refersTo": "typography.gloss",
+      "description": "The two-language unit that opens every block: Albanian display serif with its English translation set in italic display in the accent, directly beneath. Never a tracked uppercase eyebrow.",
+      "html": "<div class=\"ds-heading\"><h2>Nuk është hartë. Është fundi i filxhanit.</h2><p class=\"ds-gloss\">Not a map. The grounds in the bottom of the cup.</p></div>",
+      "css": ".ds-heading h2 { margin: 0; font-family: 'Source Serif 4 Variable', ui-serif, Georgia, serif; font-weight: 600; font-size: clamp(1.75rem, 3.4vw, 2.5rem); line-height: 1.12; letter-spacing: -0.012em; text-wrap: balance; color: var(--ink, #241812); } .ds-gloss { margin: 0.375rem 0 0; font-family: 'Source Serif 4 Variable', ui-serif, Georgia, serif; font-style: italic; font-weight: 400; font-size: 1.05rem; line-height: 1.4; letter-spacing: 0; color: var(--accent, #b34724); }"
     }
   ],
   "narrative": {
-    "northStar": "The Cup Read at the Window",
-    "overview": "Nëqoshe is a room with the light moving through it. Scroll position is an hour of the Tirana day, and every surface on the page reads from that one clock: the light meter on the right edge, the ground colour under the copy, the sun inside the 3D table. Nothing here is a mood layer applied over a template. The ground is the weather, the type is the voice, and the numbers are measurements taken in a room somebody actually sat in.\n\nThe system is built on three committed grounds rather than one tinted surface. Dawn is cream, the middle of the page is midnight roast, and the close is an ember dusk that warms rather than repeats the night. Each act carries its full token set — ground, three inks, rule, accent, on-accent, moss, lift — so a component written once behaves correctly in all three without a single conditional. Density is editorial and generous: poster-scale serif headlines, a 62ch reading measure, long vertical rooms between sections, and photography that bleeds to the true page edge.\n\nTwo pigments do all the semantic work, and they never trade jobs. The warm fire — terracotta as pigment on light ground, brass as emitted light on dark — marks a reading: a measurement, a link, a time, a call to act. Olive marks a quality: a vibe, a use, a thing this corner is good for. The world rejects the category default it was built against — a filterable grid of same-size café cards above a map — and equally rejects the moody photo essay with no data in it. Both facts and feeling ride in the same object.",
+    "northStar": "The Corner Table at the Hour You Set",
+    "overview": "Nëqoshe is a tool dressed as a room. The whole surface is one warm interior — cream paper, espresso ink, a single fire of an accent — and the visitor holds the light switch. An hour control at the top of the finder moves the sun across a 3D table, swaps the section's ground from day to night, and re-cuts the list of places that are actually open. Nothing about that is decoration: the same number drives the picture, the palette and the query.\n\nThe density is editorial, not dashboard. Serif headlines in Albanian carry the feeling, an italic English gloss translates directly underneath in the accent colour, and a small uppercase sans voice carries the measurements. Legibility is a hard commitment of this build and was paid for explicitly: the previous display pairing was replaced with Source Serif 4 over Source Sans 3 for their low stroke contrast and large x-height, -webkit-font-smoothing: antialiased and text-rendering: optimizeLegibility were deliberately removed so the OS keeps the strokes at full weight, entrance blurs were taken off body text, and the paper grain sits at 0.1 opacity. Warmth here is never bought with softness.\n\nDepth is light and pigment rather than boxes. Panels are square-cornered, hairline-ruled, and lifted only by three warm low-contrast shadows; the only round things are the controls, which are fully pill-shaped so a press target reads as a press target. Two pigments split the work: the warm fire (terracotta on light, brass on dark) marks readings and actions, and olive marks a quality. The build's imagery is entirely synthetic and disclosed as such, and 14 of 29 places have no plate at all — those get a designed panel, not a hole.",
     "keyCharacteristics": [
-      "One global clock; scroll is an hour, and every timed surface reads the same motion value.",
-      "One saturated field per act, never a tint over a shared ground.",
-      "Piazzolla at poster scale against Archivo for anything measured.",
-      "Two pigments with fixed jobs: warm fire for readings, olive for qualities.",
-      "Square-cornered plates and pill-shaped actions; no middle radius exists.",
-      "Unknowns are named in Albanian, never drawn as a zero or a crossed-out icon."
+      "One warm fire read two ways: terracotta as pigment on light ground, brass as emitted light on dark",
+      "Three grounds (dawn cream, night midnight-roast, dusk bark) that an act, not a tint, commits to",
+      "Square panels, hairline rules, pill controls",
+      "Albanian display serif over an italic English gloss in the accent",
+      "Phosphor icons as a first-class layer: one family, one weight, one size rhythm",
+      "Nulls named out loud, never rendered as zeros or crossed-out icons"
     ],
     "rules": [
-      { "name": "The One Field Per Act Rule", "body": "An act commits to its own full-bleed ground and its own complete token set. Never tint a shared surface to suggest a different time of day; declare a new act.", "section": "colors" },
-      { "name": "The Declared Ink Rule", "body": "Every act-like wrapper declares `color: var(--ink)` alongside its tokens. A custom property substitutes where it is *declared*, so `body { color: var(--ink) }` resolves against `:root` once and children inherit that literal value. An act that only redefines `--ink` inherits the wrong ink everywhere. This shipped as a real bug before it was fixed.", "section": "colors" },
-      { "name": "The Two Pigments Rule", "body": "The warm fire marks a READING; olive marks a QUALITY. Olive is never a second accent, never a fill, never a button.", "section": "colors" },
-      { "name": "The On-Accent Rule", "body": "Text on an accent fill uses `var(--on-accent)`, which flips per act. Any hardcoded colour there fails contrast in one act or the other.", "section": "colors" },
-      { "name": "The Gloss Rule", "body": "Albanian leads; English supports beneath it in italic display in the accent colour. English never appears as a tracked uppercase line above a headline — that is an eyebrow, and this world does not have them.", "section": "typography" },
-      { "name": "The Instrument Voice Rule", "body": "Tracked uppercase (`.reading`) is reserved for things that are actually measured or named data: a label over a value, a tag, a clock readout. It never carries a sentence and never introduces a heading.", "section": "typography" },
-      { "name": "The Rail Rule", "body": "`--rail` is the light meter's reserved lane in the shell's right padding. Fixed chrome takes part in no layout, so any right-aligned block at that vertical band collides with the readout unless the rail reserves it. A full-bleed element that cancels the gutter must also cancel the rail.", "section": "layout" },
-      { "name": "The Live Height Rule", "body": "Viewport-height rooms use `min-h-[100dvh]`, never `h-screen`.", "section": "layout" },
-      { "name": "The Warm Shade Rule", "body": "Every shadow is negative-spread, blurred, and tinted through `--lift`. No flat halos, no grey.", "section": "elevation" },
-      { "name": "The Light-First Rule", "body": "Reach for a gradient, a scrim or a ground change before reaching for a shadow. Cards in Explore have no shadow at all; they rise 4px on hover instead.", "section": "elevation" }
+      {
+        "name": "The One Fire Rule",
+        "body": "There is one accent, and it changes value with the act rather than multiplying. Terracotta on light, brass on dark, ember at dusk — never two accents on one screen.",
+        "section": "colors"
+      },
+      {
+        "name": "The Moss Rule",
+        "body": "--moss marks a QUALITY: a vibe, a use, a category, a human note. It never marks a reading. The warm fire marks readings. A wifi figure in olive is a bug.",
+        "section": "colors"
+      },
+      {
+        "name": "The On-Accent Rule",
+        "body": "Text sitting on an accent fill always uses var(--on-accent), which flips per act (cream on terracotta, midnight on brass, deep bark on ember). Hardcoding a colour there fails contrast in one act or the other.",
+        "section": "colors"
+      },
+      {
+        "name": "The Act Ink Rule",
+        "body": "An act wrapper (.act-dawn, .act-night, .act-dusk) declares color: var(--ink) alongside its tokens. A custom property substitutes where it is declared, so body { color: var(--ink) } resolves against :root once and children inherit that literal value. Any new act-like wrapper that skips the color declaration will render its text in the wrong ink.",
+        "section": "colors"
+      },
+      {
+        "name": "The Act-Fade Rule",
+        "body": ".act-fade transitions background-color, border-color, color and fill over 700ms because custom properties themselves do not transition — the properties consuming them do. Any act that can change while the visitor watches (the finder, as the hour crosses dusk) must carry it, or the swap reads as a cut.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two-Language Rule",
+        "body": "Albanian carries headlines, section openers and CTAs; English carries labels and glosses. The English line is set with the gloss style, never as a tracked uppercase eyebrow.",
+        "section": "typography"
+      },
+      {
+        "name": "The Unsmoothed Rule",
+        "body": "No -webkit-font-smoothing: antialiased, no text-rendering: optimizeLegibility, no entrance blur on body text, grain at 0.1. Thinning the strokes is exactly what makes warm type feel soft-focus; these four omissions are load-bearing decisions, not oversights.",
+        "section": "typography"
+      },
+      {
+        "name": "The Reading Voice Rule",
+        "body": "Uppercase is reserved for the .reading style on measurements and control labels. Headlines and prose are never uppercased.",
+        "section": "typography"
+      },
+      {
+        "name": "The Warm Shadow Rule",
+        "body": "Shadows are var(--lift), never a neutral black or grey, and always heavily negative-spread so they read as light falling off rather than as a border.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Frosted Chrome Rule",
+        "body": "Only two surfaces blur their backdrop: the top bar (blur(14px) over 82% ground) and the small badges floating on a photograph (blur(6px) over a 72%-opacity midnight). Nothing else uses backdrop-filter.",
+        "section": "elevation"
+      }
     ],
     "dos": [
-      "Do give any new act-like wrapper the complete token set *and* `color: var(--ink)`, or its children inherit the wrong ink.",
-      "Do read the hour from the one clock (`useClock()`); it is the same motion value that drives the meter, the ground and the scene's sun.",
-      "Do keep the crossover in `src/sections/Ora.tsx` derived from the single `ROOM_SWITCH` constant — ground stops, ink stops, vignette and both `data-act` sentinels. Retiming it anywhere else desynchronises the fixed chrome from the ground.",
-      "Do set `--ground` and `color` explicitly when animating act tokens on a `motion.section`; the scene's edge fade and every child reading the ground need them, not just the section's own paint.",
-      "Do use `var(--on-accent)` for text on any accent fill.",
-      "Do reserve `--rail` in the right padding of anything that must not meet the light meter, and cancel it as well as the gutter when bleeding to the page edge.",
-      "Do observe the *heading* in a word-by-word reveal, never the word. Each word starts translated out of an `overflow-hidden` wrapper, and IntersectionObserver clips a target's rect by its ancestors' overflow: observing the word caps its ratio below any useful threshold and the line never appears. This shipped invisible at all three call sites before it was caught.",
-      "Do gate every value through `known()` and name what is unknown in Albanian (\"nuk dihet\", \"s'e dimë ende\").",
-      "Do vary the grid and the aspect ratio between adjacent groups; sameness is the category default this world was built against.",
-      "Do ship a designed still for any capability fallback (no WebGL, low power, reduced motion) that carries the same idea as the live version."
+      "Do declare color: var(--ink) on any new act-like wrapper alongside its tokens; a custom property substitutes where it is declared, so inherited text resolves against :root otherwise.",
+      "Do add .act-fade to any act that can change while the visitor is watching, because custom properties do not transition but the properties consuming them do.",
+      "Do use var(--on-accent) for text on any accent fill. It flips per act.",
+      "Do reserve --moss for qualities (vibe, use, category, human note) and the warm fire for readings.",
+      "Do gate every rendered value through known() and write every facet as a positive test, because null means unknown, never \"no\". Name the gap in words (\"nuk dihet\" / \"s'e dimë ende\"), never as a zero, a dash or a crossed-out icon.",
+      "Do observe the heading, never the word, in any word-by-word reveal: IntersectionObserver clips a target's rect by its ancestors' overflow, and observing a word inside an overflow-hidden wrapper caps its ratio below any threshold. It shipped invisible once.",
+      "Do give a spot with no photograph a designed panel — category icon plus vibe tags plus an honest label.",
+      "Do pass the 3D scene a plain hour number and ease toward it inside useFrame, so dragging the dial costs no React renders.",
+      "Do pull every icon from src/lib/icons.tsx: one family (Phosphor), regular weight at rest, fill when a control is on, 14–20px.",
+      "Do keep the grain a single fixed, pointer-events-none overlay at 0.1 opacity, never on a scrolling container.",
+      "Do animate only transform, opacity, filter and clip-path, with the project's own cubic-béziers (--ease-light, --ease-settle, --ease-move).",
+      "Do give reduced motion a full static composition: elements already in place, no transform, no blur, no delay chain."
     ],
     "donts": [
-      "Don't tint a shared ground to suggest a different hour. Declare an act.",
-      "Don't use olive as a second accent or as a fill; it marks qualities only.",
-      "Don't set the English gloss as a tracked uppercase line above a headline. Tracked uppercase belongs to measurements and tags.",
-      "Don't introduce a third radius. Plates are square; actions are pills.",
-      "Don't use a flat or grey shadow. Warm, blurred, negative-spread, tinted through `--lift`, or no shadow at all.",
-      "Don't hardcode a colour where an act token exists — `--ink`, `--ground`, `--rule`, `--accent`, `--on-accent`, `--moss`, `--lift` all flip per act.",
-      "Don't render a null as a zero, a dash, a crossed-out icon, or by omission.",
-      "Don't animate anything but `transform`, `opacity`, `filter` and `clip-path`, and don't reach for a built-in easing.",
-      "Don't put the grain on a scrolling container; it is one fixed, `pointer-events-none` overlay.",
-      "Don't add a `window.addEventListener('scroll')`; use the clock, `useScroll`/`useTransform`, or IntersectionObserver."
+      "Don't hardcode a colour on an accent fill, or introduce a second accent. There is one fire, read three ways.",
+      "Don't put a reading in moss or a quality in the accent.",
+      "Don't set the English line as a tracked uppercase eyebrow or kicker; it is a translation and uses the italic gloss.",
+      "Don't reintroduce -webkit-font-smoothing: antialiased, text-rendering: optimizeLegibility, a blur-in on body text, or a heavier grain. All four were removed because the previous pairing was reported as hurting to read.",
+      "Don't round content panels. Cards, plates and frames are square; only controls are pills.",
+      "Don't use a neutral grey or black shadow; elevation is var(--lift) and warm.",
+      "Don't imply geographic precision anywhere. The cup is drawn, not surveyed, and the copy must keep saying so.",
+      "Don't imply field verification or freshness. Every record is unverified and the oldest sourcing is years old.",
+      "Don't use h-screen (use min-h-[100dvh]) or window.addEventListener('scroll') (use useScroll, useTransform, or IntersectionObserver).",
+      "Don't render an unknown as a zero, an em dash, a \"0 Mbps\" or a struck-through icon."
+    ],
+    "constraints": [
+      "All photography is synthetic and placeholder. public/img/PROVENANCE.md carries every prompt and each file embeds its own; the footer discloses it on the page and that disclosure stays until real photographs replace the plates. Replacing them would change only the image sources and the plateTone base colours in src/lib/spots.ts — no layout, aspect ratio or gradient scrim moves — and the synthetic-imagery disclosure would then need to come out.",
+      "The two YouTube live-stream ids in src/sections/Radio.tsx (jfKfPfyJRdk, 4xDzrJKXOOY) could not be verified from the build environment. Confirm both play before launch.",
+      "The cream-palette detector suppression scoped to index.html in .impeccable/config.json remains, because the brief pins #FAF3E7 as the painted first frame."
     ]
   }
 }

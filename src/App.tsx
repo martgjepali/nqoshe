@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import { ClockProvider } from './lib/clock';
+import { HourProvider } from './lib/hour';
 import { useSmoothScroll } from './lib/useSmoothScroll';
 import { Grain, Preloader } from './components/Chrome';
 import Home from './pages/Home';
@@ -25,7 +25,7 @@ export default function App() {
   useSmoothScroll();
 
   return (
-    <ClockProvider>
+    <HourProvider>
       <Preloader />
       <Grain />
       <ScrollReset />
@@ -34,6 +34,6 @@ export default function App() {
         <Route path="/qoshe/:id" element={<SpotDetail />} />
         <Route path="*" element={<SpotDetail />} />
       </Routes>
-    </ClockProvider>
+    </HourProvider>
   );
 }

@@ -1,5 +1,6 @@
 import raw from '../data/tirana-spots.json';
 import type { Dataset, NoiseLevel, Spot } from './types';
+import { notesFor } from '../data/notes';
 
 const data = raw as unknown as Dataset;
 
@@ -218,6 +219,114 @@ export const nearby = (spot: Spot, limit = 3): Spot[] => {
     .filter((s) => s.id !== spot.id && clusterOf(s) === here && imageFor(s.id))
     .slice(0, limit);
 };
+
+/* ------------------------------------------------------------- open hours */
+
+/** Pulls "07:00–23:00" out of whatever shape the hours string is in. */
+export function openWindow(spot: Spot): { from: number; to: number } | null {
+  if (!known(spot.hours)) return null;
+  const found = spot.hours.match(/(\d{1,2}):(\d{2})/g);
+  if (!found || found.length < 2) return null;
+  const toHour = (t: string) => {
+    const [h, m] = t.split(':').map(Number);
+    return h + m / 60;
+  };
+  const from = toHour(found[0]);
+  let to = toHour(found[1]);
+  if (to <= from) to += 24; // past midnight
+  return { from, to };
+}
+
+/**
+ * true open, false shut, null unknown. The third case is the important one:
+ * most of these records have no hours, and an unknown is never a "shut".
+ */
+export function isOpenAt(spot: Spot, hour: number): boolean | null {
+  const w = openWindow(spot);
+  if (!w) return null;
+  return hour >= w.from && hour < w.to;
+}
+
+/* ----------------------------------------------------------------- facets */
+
+export type FacetId =
+  | 'quiet'
+  | 'laptop'
+  | 'outlets'
+  | 'wifi'
+  | 'outdoor'
+  | 'cheap'
+  | 'late'
+  | 'notes';
+
+export interface Facet {
+  id: FacetId;
+  sq: string;
+  en: string;
+  match: (s: Spot) => boolean;
+}
+
+/**
+ * Every facet is a positive test. Nothing filters on the ABSENCE of a value,
+ * because absence here means unknown: asking for "has outlets" must never be
+ * read as "the rest have none".
+ */
+export const facets: Facet[] = [
+  { id: 'quiet', sq: 'Qetë', en: 'Quiet', match: (s) => s.noise_level === 'quiet' },
+  { id: 'laptop', sq: 'Laptop', en: 'Laptop welcome', match: (s) => s.laptop_friendly === true },
+  { id: 'outlets', sq: 'Priza', en: 'Power outlets', match: (s) => s.power_outlets === true },
+  { id: 'wifi', sq: 'Wifi i matur', en: 'Measured wifi', match: (s) => known(s.wifi_mbps) },
+  { id: 'outdoor', sq: 'Jashtë', en: 'Outdoor seats', match: (s) => s.outdoor_seating === true },
+  {
+    id: 'cheap',
+    sq: 'Nën €2',
+    en: 'Coffee under €2',
+    match: (s) => known(s.coffee_price_eur) && s.coffee_price_eur <= 2,
+  },
+  {
+    id: 'late',
+    sq: 'Vonë',
+    en: 'Open past 22:00',
+    match: (s) => {
+      const w = openWindow(s);
+      return Boolean(w && w.to >= 22.5);
+    },
+  },
+  { id: 'notes', sq: 'Me shënime', en: 'Has local notes', match: (s) => notesFor(s.id).length > 0 },
+];
+
+export interface Query {
+  facets: FacetId[];
+  neighbourhood: string | null;
+  hour: number | null;
+}
+
+export interface Match {
+  spot: Spot;
+  /** null when the record has no hours to judge by. */
+  open: boolean | null;
+}
+
+/** Runs the whole query. Unknown-open records are kept and labelled. */
+export function search(q: Query): Match[] {
+  const active = facets.filter((f) => q.facets.includes(f.id));
+  return spots
+    .filter((s) => active.every((f) => f.match(s)))
+    .filter((s) => (q.neighbourhood ? clusterOf(s) === q.neighbourhood : true))
+    .map((s) => ({ spot: s, open: q.hour === null ? null : isOpenAt(s, q.hour) }))
+    .filter((m) => m.open !== false)
+    .sort((a, b) => {
+      // knowns first, then work score, then the ones you have notes for
+      const score = (m: Match) =>
+        (m.open === true ? 4 : 0) +
+        (known(m.spot.work_score) ? m.spot.work_score / 4 : 0) +
+        (notesFor(m.spot.id).length ? 1 : 0) +
+        (imageFor(m.spot.id) ? 2 : 0);
+      return score(b) - score(a);
+    });
+}
+
+export const neighbourhoodOf = clusterOf;
 
 /** Stats the page states about itself. All derived, none invented. */
 export const stats = {
