@@ -37,15 +37,29 @@
   --ink-3: #7b6349;
   --rule: rgb(36 24 18 / 0.13);
   --accent: #c1512f;
+  --on-accent: #faf3e7;
+  /* Olive is the second pigment: it marks a QUALITY (a vibe, a use), never a
+     reading. Readings are always the warm fire. Two jobs, two pigments. */
+  --moss: #4e5c38;
+  --readout-plate: rgb(237 225 200 / 0.92);
   --lift: rgb(36 24 18 / 0.1);
 
   --gutter: 1.25rem;
+  /* The light meter hangs in the right margin. This is its reserved lane:
+     without it, any right-aligned text at that vertical band meets the
+     readout, because fixed chrome takes part in no layout. */
+  --rail: 0rem;
   --measure: 62ch;
 }
 
 @media (min-width: 768px) {
   :root {
     --gutter: 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --rail: 3.25rem;
   }
 }
 @media (min-width: 1280px) {
@@ -73,6 +87,8 @@
   --rule: rgb(36 24 18 / 0.13);
   --accent: #c1512f;
   --on-accent: #faf3e7;
+  --moss: #4e5c38;
+  --readout-plate: rgb(237 225 200 / 0.92);
   --lift: rgb(36 24 18 / 0.1);
 }
 
@@ -85,18 +101,24 @@
   --rule: rgb(244 231 211 / 0.14);
   --accent: #d89a4a;
   --on-accent: #1a120c;
+  --moss: #9aad73;
+  --readout-plate: rgb(18 12 7 / 0.74);
   --lift: rgb(0 0 0 / 0.5);
 }
 
+/* Act three is a warming, not a second night: the ground carries real ember
+   value so the close reads as last light rather than as more midnight. */
 .act-dusk {
-  --ground: #2a1710;
-  --ground-2: #3a1f14;
-  --ink: #faf3e7;
-  --ink-2: #d0ae8c;
-  --ink-3: #a08059;
-  --rule: rgb(216 154 74 / 0.22);
-  --accent: #d89a4a;
-  --on-accent: #1a120c;
+  --ground: #45210f;
+  --ground-2: #55290f;
+  --ink: #fdf4e6;
+  --ink-2: #e2bc93;
+  --ink-3: #c09a6c;
+  --rule: rgb(233 162 79 / 0.3);
+  --accent: #e9a24f;
+  --on-accent: #2a1206;
+  --moss: #a8b981;
+  --readout-plate: rgb(54 25 11 / 0.78);
   --lift: rgb(0 0 0 / 0.45);
 }
 
@@ -267,11 +289,17 @@
     color: var(--ink-2);
   }
 
+  /* Anchored sections clear the fixed bar rather than landing under it. */
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
+
   .shell {
     width: 100%;
     max-width: 90rem;
     margin-inline: auto;
-    padding-inline: var(--gutter);
+    padding-left: var(--gutter);
+    padding-right: calc(var(--gutter) + var(--rail));
   }
 
   /* Warm depth: offset and blur, tinted to the ground, never a flat halo. */

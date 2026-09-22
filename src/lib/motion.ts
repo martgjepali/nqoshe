@@ -31,8 +31,8 @@ export const clamp01 = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v);
  * The single clock. Scroll progress across the whole document maps to an
  * hour of the Tirana day: the page opens at first light and closes late.
  */
-export const DAY_START = 6.4;
-export const DAY_END = 23.2;
+export const DAY_START = 5.5;
+export const DAY_END = 23.7;
 
 export const hourAt = (progress: number) =>
   DAY_START + clamp01(progress) * (DAY_END - DAY_START);

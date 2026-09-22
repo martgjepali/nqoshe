@@ -28,7 +28,7 @@ function GroupHead({ sq, en, note }: { sq: string; en: string; note: string }) {
 function Group({ id, children }: { id: string; children: ReactNode }) {
   return (
     <section
-      className="py-14 first:pt-0 md:py-20"
+      className="py-14 first:pt-0 last:pb-0 md:py-20 md:last:pb-0"
       style={{ borderTop: '1px solid var(--rule)' }}
       aria-labelledby={`group-${id}`}
     >
@@ -42,7 +42,7 @@ export function Explore() {
 
   return (
     <section id="qoshet" data-act="night" className="act-night ground relative">
-      <div className="shell py-24 md:py-32">
+      <div className="shell pt-12 pb-4 md:pt-16 md:pb-6">
         <div className="mb-14 max-w-[46rem] md:mb-20">
           <WordReveal
             as="h2"
@@ -142,15 +142,9 @@ export function Explore() {
           <div id={`group-${night.id}`}>
             <GroupHead {...night} />
           </div>
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-5 lg:gap-6">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-6">
             {groupSpots(night).map((s, i) => (
-              <SpotCard
-                key={s.id}
-                spot={s}
-                ratio={i === 0 ? 'wide' : 'portrait'}
-                index={i}
-                className={i === 0 ? 'lg:col-span-3' : 'lg:col-span-2'}
-              />
+              <SpotCard key={s.id} spot={s} ratio="letterbox" index={i} />
             ))}
           </div>
         </Group>

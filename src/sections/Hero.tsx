@@ -142,7 +142,7 @@ export function Hero() {
 
         {/* --- the corner --------------------------------------------- */}
         <motion.div
-          className="relative -mx-[var(--gutter)] -mb-px h-[48vh] min-h-[280px] self-end lg:col-span-5 lg:mr-[calc(-1*var(--gutter))] lg:-ml-0 lg:h-[88vh] lg:self-center"
+          className="relative -mx-[var(--gutter)] -mb-px h-[48vh] min-h-[280px] self-end lg:col-span-5 lg:mr-[calc(-1*(var(--gutter)+var(--rail)))] lg:-ml-0 lg:h-[88vh] lg:self-center"
           style={reduce ? undefined : { y: plateY, x: fine ? plateX : 0 }}
           initial={reduce ? false : { opacity: 0, scale: 1.04 }}
           animate={reduce ? undefined : { opacity: 1, scale: 1 }}

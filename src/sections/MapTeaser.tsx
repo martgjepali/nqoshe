@@ -19,7 +19,10 @@ function mulberry(seed: number) {
 interface Speck {
   x: number;
   y: number;
-  r: number;
+  /** grains are not dots: each has a length, a width and a lie. */
+  rx: number;
+  ry: number;
+  rot: number;
   o: number;
 }
 
@@ -38,18 +41,36 @@ export function MapTeaser() {
         const cx = CX + (c.x - 0.5) * R * 1.42;
         const cy = CY + (c.y - 0.5) * R * 1.42;
         const specks: Speck[] = [];
-        // one grain per spot, plus a little dust so a cluster reads as sediment
+        // One grain per spot, each sitting in its own small clump of dust, so
+        // the cluster reads as settled sediment rather than as a scatter plot.
         const grains = c.spots.length;
-        for (let i = 0; i < grains * 6; i++) {
-          const primary = i < grains;
-          const angle = rand() * Math.PI * 2;
-          const spread = (primary ? 16 : 34) * Math.sqrt(rand());
+        for (let g = 0; g < grains; g++) {
+          const ga = rand() * Math.PI * 2;
+          const gd = 13 * Math.sqrt(rand());
+          const gx = cx + Math.cos(ga) * gd;
+          const gy = cy + Math.sin(ga) * gd * 0.84;
+          const len = 3.1 + rand() * 2.2;
           specks.push({
-            x: cx + Math.cos(angle) * spread,
-            y: cy + Math.sin(angle) * spread * 0.86,
-            r: primary ? 2.6 + rand() * 1.9 : 0.6 + rand() * 1.1,
-            o: primary ? 0.82 + rand() * 0.18 : 0.2 + rand() * 0.28,
+            x: gx,
+            y: gy,
+            rx: len,
+            ry: len * (0.52 + rand() * 0.34),
+            rot: rand() * 180,
+            o: 0.84 + rand() * 0.16,
           });
+          for (let d = 0; d < 7; d++) {
+            const da = rand() * Math.PI * 2;
+            const dd = 4 + 16 * Math.pow(rand(), 0.7);
+            const dl = 0.5 + rand() * 1.5;
+            specks.push({
+              x: gx + Math.cos(da) * dd,
+              y: gy + Math.sin(da) * dd * 0.84,
+              rx: dl,
+              ry: dl * (0.45 + rand() * 0.45),
+              rot: rand() * 180,
+              o: 0.16 + rand() * 0.38,
+            });
+          }
         }
         return { ...c, cx, cy, specks };
       }),
@@ -58,7 +79,7 @@ export function MapTeaser() {
 
   return (
     <section id="harta" data-act="night" className="act-night ground relative overflow-hidden">
-      <div className="shell grid grid-cols-1 items-center gap-14 py-24 md:py-32 lg:grid-cols-12 lg:gap-10">
+      <div className="shell grid grid-cols-1 items-center gap-14 pt-20 pb-24 md:pt-24 md:pb-32 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-5">
           <WordReveal
             as="h2"
@@ -123,6 +144,9 @@ export function MapTeaser() {
                 <stop offset="82%" stopColor="#D8C09A" />
                 <stop offset="100%" stopColor="#B8996E" />
               </radialGradient>
+              <filter id="soften" x="-10%" y="-10%" width="120%" height="120%">
+                <feGaussianBlur stdDeviation="2.4" />
+              </filter>
               <radialGradient id="shade" cx="74%" cy="82%" r="60%">
                 <stop offset="0%" stopColor="rgba(90,56,28,0.42)" />
                 <stop offset="100%" stopColor="rgba(90,56,28,0)" />
@@ -134,6 +158,27 @@ export function MapTeaser() {
             <circle cx={CX} cy={CY} r={R} fill="url(#glaze)" />
             <circle cx={CX} cy={CY} r={R} fill="url(#shade)" />
             <circle cx={CX} cy={CY} r={R} fill="none" stroke="rgba(120,80,40,0.28)" strokeWidth="1" />
+            {/* the tide line where the last of the coffee pulled back off the glaze */}
+            <g filter="url(#soften)">
+              <circle
+                cx={CX}
+                cy={CY - 6}
+                r={R - 24}
+                fill="none"
+                stroke="rgba(94,58,28,0.17)"
+                strokeWidth="5"
+                strokeDasharray="150 26 84 40 210 34"
+              />
+              <circle
+                cx={CX + 4}
+                cy={CY - 2}
+                r={R - 52}
+                fill="none"
+                stroke="rgba(94,58,28,0.08)"
+                strokeWidth="9"
+                strokeDasharray="230 70 130 50"
+              />
+            </g>
 
             {plots.map((c, ci) => {
               const on = active === null || active === c.name;
@@ -145,11 +190,13 @@ export function MapTeaser() {
                   style={{ transition: 'opacity 320ms cubic-bezier(0.16,1,0.3,1)', opacity: on ? 1 : 0.22 }}
                 >
                   {c.specks.map((s, i) => (
-                    <motion.circle
+                    <motion.ellipse
                       key={i}
                       cx={s.x}
                       cy={s.y}
-                      r={s.r}
+                      rx={s.rx}
+                      ry={s.ry}
+                      transform={`rotate(${s.rot} ${s.x} ${s.y})`}
                       fill={active === c.name ? '#B03E1C' : '#33200F'}
                       opacity={s.o}
                       initial={reduce ? false : { scale: 0, opacity: 0 }}

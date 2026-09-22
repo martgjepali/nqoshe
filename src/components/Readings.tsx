@@ -37,29 +37,27 @@ export function unknownFields(spot: Spot): string[] {
   return FIELD_NAMES.filter(([key]) => !known(spot[key])).map(([, name]) => name);
 }
 
-/** Readings set as measurements, divided by hairlines rather than dots. */
+/** Readings set as measurements: a label in the small caps voice, a value. */
 export function ReadingStrip({ items, max }: { items: Reading[]; max?: number }) {
   const shown = max ? items.slice(0, max) : items;
   if (!shown.length) return null;
 
+  // No divider elements: a separator drawn before each item leaves a stray
+  // rule at the start of a wrapped line. The label/value pairing and the gap
+  // carry the separation instead.
   return (
-    <dl className="m-0 flex flex-wrap items-center gap-x-3 gap-y-1.5 p-0">
-      {shown.map((r, i) => (
-        <div key={r.label} className="flex items-center gap-3">
-          {i > 0 && (
-            <span aria-hidden className="h-3 w-px" style={{ background: 'var(--rule)' }} />
-          )}
-          <div className="flex items-baseline gap-1.5">
-            <dt className="reading" style={{ color: 'var(--ink-3)' }}>
-              {r.label}
-            </dt>
-            <dd
-              className="m-0 text-[0.8125rem] leading-none font-medium"
-              style={{ color: 'var(--ink-2)' }}
-            >
-              {r.value}
-            </dd>
-          </div>
+    <dl className="m-0 flex flex-wrap items-baseline gap-x-5 gap-y-2 p-0">
+      {shown.map((r) => (
+        <div key={r.label} className="flex items-baseline gap-1.5">
+          <dt className="reading" style={{ color: 'var(--ink-3)' }}>
+            {r.label}
+          </dt>
+          <dd
+            className="m-0 text-[0.8125rem] leading-none font-medium"
+            style={{ color: 'var(--ink-2)' }}
+          >
+            {r.value}
+          </dd>
         </div>
       ))}
     </dl>

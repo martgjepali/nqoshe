@@ -1,0 +1,295 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-22T00:00:00.000Z",
+  "title": "Design System: Nëqoshe",
+  "extensions": {
+    "colorMeta": {
+      "cream": {
+        "role": "neutral",
+        "displayName": "Morning Cream",
+        "canonical": "#faf3e7",
+        "tonalRamp": ["#241812", "#3d2a1d", "#5c4330", "#7d6048", "#a18468", "#c5ab8e", "#e3d2b9", "#faf3e7"]
+      },
+      "cream-deep": {
+        "role": "neutral",
+        "displayName": "Cream Deep",
+        "canonical": "#f2e5cf",
+        "tonalRamp": ["#251b0f", "#3f2f1c", "#5e482c", "#80663f", "#a58a5c", "#c9b083", "#e2cfad", "#f2e5cf"]
+      },
+      "espresso": {
+        "role": "neutral",
+        "displayName": "Espresso Ink",
+        "canonical": "#241812",
+        "tonalRamp": ["#140c08", "#241812", "#3a251a", "#543724", "#734d33", "#976848", "#bd8b66", "#e0b791"]
+      },
+      "espresso-soft": {
+        "role": "neutral",
+        "displayName": "Soft Espresso",
+        "canonical": "#6b5341",
+        "tonalRamp": ["#1d1510", "#2f231a", "#453326", "#5a4334", "#6b5341", "#8b6e57", "#ac8d74", "#cdb096"]
+      },
+      "espresso-faint": {
+        "role": "neutral",
+        "displayName": "Faint Espresso",
+        "canonical": "#7b6349",
+        "tonalRamp": ["#221a12", "#35281c", "#4b3927", "#624b33", "#7b6349", "#9b8063", "#bb9f80", "#dabfa1"]
+      },
+      "terracotta": {
+        "role": "primary",
+        "displayName": "Tirana Terracotta",
+        "canonical": "#c1512f",
+        "tonalRamp": ["#2e120a", "#4a1d0f", "#6a2b16", "#8f3a1f", "#c1512f", "#d97653", "#eda184", "#f8ccbb"]
+      },
+      "terracotta-deep": {
+        "role": "primary",
+        "displayName": "Deep Terracotta",
+        "canonical": "#8f3a1f",
+        "tonalRamp": ["#220d07", "#39150b", "#531f10", "#712b16", "#8f3a1f", "#b45537", "#d4805f", "#eeb193"]
+      },
+      "brass": {
+        "role": "primary",
+        "displayName": "Lamp Brass",
+        "canonical": "#d89a4a",
+        "tonalRamp": ["#33210a", "#4d3210", "#6a4617", "#8b5c1f", "#ae7529", "#d89a4a", "#e8bd85", "#f6dfbe"]
+      },
+      "ember-accent": {
+        "role": "primary",
+        "displayName": "Ember Light",
+        "canonical": "#e9a24f",
+        "tonalRamp": ["#36230c", "#503412", "#6e4818", "#8f5e20", "#b3772a", "#e9a24f", "#f2c389", "#fae0c0"]
+      },
+      "midnight": {
+        "role": "neutral",
+        "displayName": "Midnight Roast",
+        "canonical": "#1a120c",
+        "tonalRamp": ["#0d0906", "#1a120c", "#2d1f14", "#43301f", "#5d442c", "#7c5d3d", "#9e7a53", "#c29b6f"]
+      },
+      "candlelight": {
+        "role": "neutral",
+        "displayName": "Candlelight",
+        "canonical": "#f4e7d3",
+        "tonalRamp": ["#26190c", "#3e2b18", "#5a4225", "#795b34", "#9b7a4d", "#bfa176", "#dcc5a4", "#f4e7d3"]
+      },
+      "candlelight-soft": {
+        "role": "neutral",
+        "displayName": "Soft Candlelight",
+        "canonical": "#a8927a",
+        "tonalRamp": ["#251d15", "#3a2e22", "#514131", "#695542", "#836c55", "#a8927a", "#c7b59f", "#e4d8c6"]
+      },
+      "candlelight-faint": {
+        "role": "neutral",
+        "displayName": "Faint Candlelight",
+        "canonical": "#93795b",
+        "tonalRamp": ["#20190f", "#33291a", "#493a25", "#5f4c31", "#77603e", "#93795b", "#b69e80", "#d7c5aa"]
+      },
+      "ember-ground": {
+        "role": "neutral",
+        "displayName": "Ember Ground",
+        "canonical": "#45210f",
+        "tonalRamp": ["#1c0c05", "#2e1409", "#45210f", "#5f2f16", "#7d411f", "#9d562b", "#c1743f", "#dfa070"]
+      },
+      "ember-ground-2": {
+        "role": "neutral",
+        "displayName": "Ember Ground Two",
+        "canonical": "#55290f",
+        "tonalRamp": ["#210f05", "#371a09", "#55290f", "#703916", "#8e4b1e", "#ae6129", "#ce8244", "#e7ac77"]
+      },
+      "ember-ink": {
+        "role": "neutral",
+        "displayName": "Last Light",
+        "canonical": "#fdf4e6",
+        "tonalRamp": ["#291b0d", "#412d19", "#5d4426", "#7d5c35", "#a07c4c", "#c4a377", "#e0cba6", "#fdf4e6"]
+      },
+      "ember-ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Last Light",
+        "canonical": "#e2bc93",
+        "tonalRamp": ["#2a1c0e", "#432e1a", "#5f4326", "#7e5b34", "#a07a4b", "#c19a6c", "#e2bc93", "#f3ddc4"]
+      },
+      "ember-ink-faint": {
+        "role": "neutral",
+        "displayName": "Faint Last Light",
+        "canonical": "#c09a6c",
+        "tonalRamp": ["#251a0e", "#3b2a18", "#543d24", "#6f5331", "#8c6c42", "#a98457", "#c09a6c", "#dcbf99"]
+      },
+      "ember-on-accent": {
+        "role": "neutral",
+        "displayName": "Ember On-Accent",
+        "canonical": "#2a1206",
+        "tonalRamp": ["#160903", "#2a1206", "#401d0b", "#592911", "#743819", "#914a24", "#b16334", "#d0854e"]
+      },
+      "moss": {
+        "role": "secondary",
+        "displayName": "Table Olive",
+        "canonical": "#4e5c38",
+        "tonalRamp": ["#151a0f", "#242c1a", "#353f25", "#485430", "#4e5c38", "#728c52", "#9aad73", "#c3d0a5"]
+      },
+      "moss-night": {
+        "role": "secondary",
+        "displayName": "Night Olive",
+        "canonical": "#9aad73",
+        "tonalRamp": ["#1a1f11", "#2b331c", "#3f4a28", "#556236", "#6d7c46", "#879759", "#9aad73", "#c4d1a6"]
+      },
+      "moss-dusk": {
+        "role": "secondary",
+        "displayName": "Dusk Olive",
+        "canonical": "#a8b981",
+        "tonalRamp": ["#1c2013", "#2e351e", "#434d2b", "#596639", "#718048", "#8c9c60", "#a8b981", "#cfdcb2"]
+      }
+    },
+    "typographyMeta": {
+      "display-lg": { "displayName": "Display Large", "purpose": "Page-owning statements: the close, the hero-scale lines. Piazzolla at poster scale." },
+      "display": { "displayName": "Display", "purpose": "Section headlines, set tight with balanced wrapping." },
+      "title": { "displayName": "Title", "purpose": "Spot names on cards and subsection heads." },
+      "gloss": { "displayName": "Gloss", "purpose": "The English translation beneath an Albanian line, italic display in the accent colour. Never an eyebrow." },
+      "body-lg": { "displayName": "Body Large", "purpose": "Section openers and long reading passages, capped at a 62ch measure." },
+      "body": { "displayName": "Body", "purpose": "Notes, sourcing, asides and control labels." },
+      "reading": { "displayName": "Reading", "purpose": "Tracked uppercase for measurements, tags and the clock readout only." }
+    },
+    "shadows": [
+      { "name": "lift-sm", "value": "0 2px 8px -2px var(--lift)", "purpose": "Small resting plates. Warm, tinted to the act's lift colour." },
+      { "name": "lift-md", "value": "0 8px 20px -10px var(--lift), 0 2px 6px -4px var(--lift)", "purpose": "Panels that need to sit above their ground." },
+      { "name": "lift-lg", "value": "0 30px 60px -30px var(--lift), 0 10px 24px -18px var(--lift)", "purpose": "The hero plate and full-height photographic objects." },
+      { "name": "meter-dot-glow", "value": "0 0 14px 3px rgba(216,154,74,0.6)", "purpose": "The travelling brass dot on the light meter; the only glow in the system." }
+    ],
+    "motion": [
+      { "name": "ease-light", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Exponential out. Everything that enters." },
+      { "name": "ease-settle", "value": "cubic-bezier(0.32, 0.72, 0, 1)", "purpose": "Things that settle into place under their own weight: the top bar, the preloader wipe." },
+      { "name": "ease-move", "value": "cubic-bezier(0.65, 0, 0.35, 1)", "purpose": "Symmetric. Things that cross the screen." },
+      { "name": "reveal", "value": "duration 0.9s, ease-light", "purpose": "Standard entrance: opacity, 22px rise, 10px blur clearing." },
+      { "name": "reveal-slow", "value": "duration 1.25s, ease-light", "purpose": "Large plates and headline word reveals." },
+      { "name": "stagger-sibling", "value": "60-100ms", "purpose": "Delay between adjacent revealed siblings; 45ms between words." },
+      { "name": "spring-cursor", "value": "stiffness 90, damping 18, mass 0.7", "purpose": "Cursor-tracked light and plate lean. Loose enough to have momentum." },
+      { "name": "spring-ui", "value": "stiffness 260, damping 28, mass 0.6", "purpose": "UI settle." },
+      { "name": "act-crossfade", "value": "color 450ms ease, background-color 450ms ease", "purpose": "Fixed chrome and the light meter changing acts." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The page's call to act. Accent fill, on-accent text, with a deep-terracotta wipe growing from the left on hover.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#qoshet\"><span aria-hidden=\"true\" class=\"ds-btn-primary__wipe\"></span><span class=\"ds-btn-primary__label\">Gjej këndin tënd</span></a>",
+      "css": ".ds-btn-primary { position: relative; display: inline-flex; align-items: center; overflow: hidden; border-radius: 999px; padding: 0.9rem 1.75rem; font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.9375rem; font-weight: 500; white-space: nowrap; text-decoration: none; background: var(--accent, #c1512f); color: var(--on-accent, #faf3e7); transition: transform 150ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary__wipe { position: absolute; inset: 0; transform: scaleX(0); transform-origin: left; background: #8f3a1f; transition: transform 500ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary__label { position: relative; } .ds-btn-primary:hover .ds-btn-primary__wipe { transform: scaleX(1); } .ds-btn-primary:active { transform: scale(0.975); } .ds-btn-primary:focus-visible { outline: 2px solid var(--accent, #c1512f); outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "The secondary action. A hairline rule pill on the act's ground, ink text, no fill.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Shih një qoshe</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; border-radius: 999px; padding: 0.9rem 1.5rem; border: 1px solid var(--rule, rgb(36 24 18 / 0.13)); background: transparent; color: var(--ink, #241812); font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.9375rem; font-weight: 500; white-space: nowrap; text-decoration: none; transition: color 200ms ease, border-color 200ms ease, transform 150ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-ghost:hover { color: var(--accent, #c1512f); border-color: color-mix(in oklab, var(--accent, #c1512f) 45%, transparent); } .ds-btn-ghost:active { transform: scale(0.975); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--accent, #c1512f); outline-offset: 3px; }"
+    },
+    {
+      "name": "Quality Tag",
+      "kind": "chip",
+      "refersTo": "chip-quality",
+      "description": "Olive pigment marking a quality — a vibe or a use. Outline only; olive is never a fill.",
+      "html": "<ul class=\"ds-tag-row\"><li class=\"ds-tag-quality\">slow mornings</li><li class=\"ds-tag-quality\">long sit</li></ul>",
+      "css": ".ds-tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0; padding: 0; list-style: none; } .ds-tag-quality { border-radius: 999px; padding: 0.5rem 0.875rem; border: 1px solid color-mix(in oklab, var(--moss, #4e5c38) 40%, transparent); color: var(--moss, #4e5c38); background: transparent; font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }"
+    },
+    {
+      "name": "Reading Strip",
+      "kind": "custom",
+      "refersTo": "card-spot",
+      "description": "Label/value measurement pairs with no dividers, followed by the unknowns named out loud. A null never becomes a zero or a dash.",
+      "html": "<div class=\"ds-readings\"><dl class=\"ds-readings__list\"><div class=\"ds-readings__pair\"><dt class=\"ds-readings__label\">Zhurma</dt><dd class=\"ds-readings__value\">E qetë</dd></div><div class=\"ds-readings__pair\"><dt class=\"ds-readings__label\">Wifi</dt><dd class=\"ds-readings__value\">48 Mbps</dd></div><div class=\"ds-readings__pair\"><dt class=\"ds-readings__label\">Kafe</dt><dd class=\"ds-readings__value\">€1.5</dd></div></dl><p class=\"ds-readings__unknown\">S&rsquo;e dimë ende: prizat, orari.</p></div>",
+      "css": ".ds-readings { border-top: 1px solid var(--rule, rgb(36 24 18 / 0.13)); padding-top: 0.875rem; } .ds-readings__list { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 1.25rem; row-gap: 0.5rem; margin: 0; padding: 0; } .ds-readings__pair { display: flex; align-items: baseline; gap: 0.375rem; } .ds-readings__label { font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3, #7b6349); } .ds-readings__value { margin: 0; font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.8125rem; font-weight: 500; line-height: 1; font-variant-numeric: tabular-nums; color: var(--ink-2, #6b5341); } .ds-readings__unknown { margin: 0.625rem 0 0; font-size: 0.75rem; line-height: 1.45; font-style: italic; color: var(--ink-3, #7b6349); }"
+    },
+    {
+      "name": "Spot Card",
+      "kind": "card",
+      "refersTo": "card-spot",
+      "description": "A square photographic plate plus a text block — not a boxed card. Vibe tags and the work score live on the plate; readings sit under the rule.",
+      "html": "<article class=\"ds-card\"><a class=\"ds-card__link\" href=\"#\"><div class=\"ds-card__plate\"><div class=\"ds-card__img\"></div><div class=\"ds-card__scrim\" aria-hidden=\"true\"></div><ul class=\"ds-card__tags\"><li>long sit</li><li>quiet</li></ul><div class=\"ds-card__score\"><span class=\"ds-card__score-label\">Punë</span><span class=\"ds-card__score-value\">8.4</span></div></div><div class=\"ds-card__body\"><div class=\"ds-card__head\"><h4 class=\"ds-card__name\">Streha</h4><span class=\"ds-card__arrow\" aria-hidden=\"true\">&rarr;</span></div><p class=\"ds-card__meta\">Blloku / Kafe specialty</p></div></a></article>",
+      "css": ".ds-card__link { display: block; height: 100%; text-decoration: none; } .ds-card__plate { position: relative; overflow: hidden; aspect-ratio: 4 / 5; background: #7b6349; transition: transform 520ms cubic-bezier(0.16,1,0.3,1); } .ds-card__img { position: absolute; inset: 0; background: linear-gradient(140deg, #8b6440 0%, #4b3220 60%, #2a1a10 100%); transition: transform 900ms cubic-bezier(0.16,1,0.3,1), filter 900ms cubic-bezier(0.16,1,0.3,1); } .ds-card__scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,18,12,0.86) 0%, rgba(26,18,12,0.22) 34%, rgba(26,18,12,0) 62%); } .ds-card__link:hover .ds-card__plate { transform: translateY(-4px); } .ds-card__link:hover .ds-card__img { transform: scale(1.045); filter: brightness(1.06) saturate(1.08); } .ds-card__tags { position: absolute; left: 1rem; right: 1rem; bottom: 1rem; display: flex; flex-wrap: wrap; gap: 0.375rem; margin: 0; padding: 0; list-style: none; opacity: 0; transform: translateY(8px); transition: opacity 500ms cubic-bezier(0.16,1,0.3,1), transform 500ms cubic-bezier(0.16,1,0.3,1); } .ds-card__tags li { border-radius: 999px; padding: 0.25rem 0.625rem; background: rgba(250,243,231,0.14); backdrop-filter: blur(6px); color: #e6efd2; font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; } .ds-card__link:hover .ds-card__tags, .ds-card__link:focus-visible .ds-card__tags { opacity: 1; transform: translateY(0); } .ds-card__score { position: absolute; top: 1rem; right: 1rem; display: flex; align-items: baseline; gap: 0.25rem; border-radius: 999px; padding: 0.375rem 0.75rem; background: rgba(26,18,12,0.62); backdrop-filter: blur(8px); } .ds-card__score-label { font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,243,231,0.72); } .ds-card__score-value { font-family: 'Piazzolla Variable', ui-serif, Georgia, serif; font-weight: 500; font-size: 0.95rem; line-height: 1; color: #d89a4a; } .ds-card__body { padding-top: 1rem; } .ds-card__head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; } .ds-card__name { margin: 0; font-family: 'Piazzolla Variable', ui-serif, Georgia, serif; font-weight: 500; letter-spacing: -0.03em; font-size: 1.375rem; line-height: 1.18; color: var(--ink, #241812); } .ds-card__arrow { color: var(--accent, #c1512f); font-size: 0.9rem; transition: transform 300ms cubic-bezier(0.16,1,0.3,1); } .ds-card__link:hover .ds-card__arrow { transform: translateX(4px); } .ds-card__meta { margin: 0.375rem 0 0; font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3, #7b6349); } .ds-card__link:focus-visible { outline: 2px solid var(--accent, #c1512f); outline-offset: 4px; }"
+    },
+    {
+      "name": "Email Field",
+      "kind": "input",
+      "refersTo": "input-email",
+      "description": "Pill field on the act's second ground with a hairline rule, paired inline with a primary pill button.",
+      "html": "<form class=\"ds-field-row\"><input class=\"ds-input-email\" type=\"email\" placeholder=\"ti@shembull.al\" aria-label=\"Email\" /><button class=\"ds-field-submit\" type=\"submit\">Më njofto</button></form>",
+      "css": ".ds-field-row { display: flex; gap: 0.5rem; } .ds-input-email { flex: 1 1 auto; min-width: 0; border-radius: 999px; padding: 0.75rem 1.25rem; background: color-mix(in oklab, var(--ground-2, #f2e5cf) 90%, transparent); border: 1px solid var(--rule, rgb(36 24 18 / 0.13)); color: var(--ink, #241812); caret-color: var(--accent, #c1512f); font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.9375rem; outline: none; } .ds-input-email::placeholder { color: var(--ink-3, #7b6349); opacity: 1; } .ds-input-email:focus-visible { outline: 2px solid var(--accent, #c1512f); outline-offset: 3px; } .ds-input-email[aria-invalid='true'] { border-color: #e4703f; } .ds-field-submit { border: none; border-radius: 999px; padding: 0.75rem 1.25rem; background: var(--accent, #c1512f); color: var(--on-accent, #faf3e7); font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; white-space: nowrap; transition: transform 150ms cubic-bezier(0.16,1,0.3,1); } .ds-field-submit:active { transform: scale(0.97); } .ds-field-submit:focus-visible { outline: 2px solid var(--accent, #c1512f); outline-offset: 3px; }"
+    },
+    {
+      "name": "Top Bar",
+      "kind": "nav",
+      "refersTo": "nav-bar",
+      "description": "Fixed chrome that only exists after the hero. Ground at 82% with a 14px backdrop blur, a hairline bottom rule, and the act class applied from whichever act sits under the viewport top.",
+      "html": "<header class=\"ds-topbar\"><nav class=\"ds-topbar__inner\"><a class=\"ds-topbar__mark\" href=\"/\">Nëqoshe</a><a class=\"ds-topbar__cta\" href=\"#qoshet\">Gjej këndin tënd</a></nav></header>",
+      "css": ".ds-topbar { position: relative; height: 4.5rem; background: color-mix(in oklab, var(--ground, #faf3e7) 82%, transparent); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule, rgb(36 24 18 / 0.13)); transition: color 450ms ease, background-color 450ms ease; } .ds-topbar__inner { display: flex; height: 100%; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 0 2.5rem; } .ds-topbar__mark { font-family: 'Piazzolla Variable', ui-serif, Georgia, serif; font-weight: 520; letter-spacing: -0.035em; font-size: 1.25rem; line-height: 0.92; color: var(--ink, #241812); text-decoration: none; } .ds-topbar__cta { border-radius: 999px; padding: 0.5rem 1.25rem; background: var(--accent, #c1512f); color: var(--on-accent, #faf3e7); font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.8125rem; font-weight: 500; white-space: nowrap; text-decoration: none; transition: transform 150ms cubic-bezier(0.16,1,0.3,1); } .ds-topbar__cta:active { transform: scale(0.97); } .ds-topbar__cta:focus-visible { outline: 2px solid var(--accent, #c1512f); outline-offset: 3px; }"
+    },
+    {
+      "name": "Light Meter Readout",
+      "kind": "custom",
+      "refersTo": "readout-plate",
+      "description": "The clock made visible: a brass rail with hour ticks, a glowing travelling dot, and a readout plate one shade darker than the act's own ground so it survives cream, midnight and photography alike.",
+      "html": "<div class=\"ds-meter\"><div class=\"ds-meter__rail\"><span class=\"ds-meter__tick\" style=\"top:16%\"></span><span class=\"ds-meter__tick\" style=\"top:33%\"></span><span class=\"ds-meter__tick\" style=\"top:50%\"></span><span class=\"ds-meter__tick\" style=\"top:67%\"></span><span class=\"ds-meter__tick\" style=\"top:84%\"></span><span class=\"ds-meter__dot\" style=\"top:41%\"></span></div><span class=\"ds-meter__readout\">14:12</span></div>",
+      "css": ".ds-meter { position: relative; height: 16rem; width: 4rem; } .ds-meter__rail { position: relative; height: 100%; width: 1px; margin-left: 2.4rem; background: rgba(216,154,74,0.48); } .ds-meter__tick { position: absolute; right: 0; height: 1px; width: 0.625rem; background: rgba(216,154,74,0.68); } .ds-meter__dot { position: absolute; left: -3.5px; height: 0.5rem; width: 0.5rem; border-radius: 999px; background: #e9ae63; box-shadow: 0 0 14px 3px rgba(216,154,74,0.6); } .ds-meter__readout { position: absolute; top: 100%; right: 0; display: block; padding: 0.375rem 0.375rem 0.25rem; background: var(--readout-plate, rgb(237 225 200 / 0.92)); border-top: 1px solid rgba(216,154,74,0.48); color: var(--ink-2, #6b5341); font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; font-variant-numeric: tabular-nums; white-space: nowrap; transition: color 450ms ease, background 450ms ease; }"
+    },
+    {
+      "name": "Headline and Gloss",
+      "kind": "custom",
+      "refersTo": "display",
+      "description": "The house type pairing: Albanian leads in tight Piazzolla, English supports beneath in italic display in the accent colour. Never a tracked uppercase eyebrow.",
+      "html": "<div class=\"ds-headline\"><h2 class=\"ds-headline__sq\">Qoshet, sipas asaj që kërkon.</h2><p class=\"ds-headline__gloss\">Corners, by what you are looking for.</p><p class=\"ds-headline__body\">Places across Tirana, grouped by what the afternoon is actually for. Tap any corner for the full reading.</p></div>",
+      "css": ".ds-headline__sq { margin: 0; font-family: 'Piazzolla Variable', ui-serif, Georgia, serif; font-weight: 500; letter-spacing: -0.03em; line-height: 1.03; font-size: clamp(2.2rem, 6vw, 4.2rem); text-wrap: balance; color: var(--ink, #241812); } .ds-headline__gloss { margin: 0.75rem 0 0; font-family: 'Piazzolla Variable', ui-serif, Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -0.005em; line-height: 1.35; font-size: 1.0625rem; color: var(--accent, #c1512f); } .ds-headline__body { margin: 1.5rem 0 0; max-width: 62ch; font-family: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif; font-size: clamp(1.0625rem, 0.95rem + 0.5vw, 1.3125rem); line-height: 1.6; text-wrap: pretty; color: var(--ink-2, #6b5341); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Cup Read at the Window",
+    "overview": "Nëqoshe is a room with the light moving through it. Scroll position is an hour of the Tirana day, and every surface on the page reads from that one clock: the light meter on the right edge, the ground colour under the copy, the sun inside the 3D table. Nothing here is a mood layer applied over a template. The ground is the weather, the type is the voice, and the numbers are measurements taken in a room somebody actually sat in.\n\nThe system is built on three committed grounds rather than one tinted surface. Dawn is cream, the middle of the page is midnight roast, and the close is an ember dusk that warms rather than repeats the night. Each act carries its full token set — ground, three inks, rule, accent, on-accent, moss, lift — so a component written once behaves correctly in all three without a single conditional. Density is editorial and generous: poster-scale serif headlines, a 62ch reading measure, long vertical rooms between sections, and photography that bleeds to the true page edge.\n\nTwo pigments do all the semantic work, and they never trade jobs. The warm fire — terracotta as pigment on light ground, brass as emitted light on dark — marks a reading: a measurement, a link, a time, a call to act. Olive marks a quality: a vibe, a use, a thing this corner is good for. The world rejects the category default it was built against — a filterable grid of same-size café cards above a map — and equally rejects the moody photo essay with no data in it. Both facts and feeling ride in the same object.",
+    "keyCharacteristics": [
+      "One global clock; scroll is an hour, and every timed surface reads the same motion value.",
+      "One saturated field per act, never a tint over a shared ground.",
+      "Piazzolla at poster scale against Archivo for anything measured.",
+      "Two pigments with fixed jobs: warm fire for readings, olive for qualities.",
+      "Square-cornered plates and pill-shaped actions; no middle radius exists.",
+      "Unknowns are named in Albanian, never drawn as a zero or a crossed-out icon."
+    ],
+    "rules": [
+      { "name": "The One Field Per Act Rule", "body": "An act commits to its own full-bleed ground and its own complete token set. Never tint a shared surface to suggest a different time of day; declare a new act.", "section": "colors" },
+      { "name": "The Declared Ink Rule", "body": "Every act-like wrapper declares `color: var(--ink)` alongside its tokens. A custom property substitutes where it is *declared*, so `body { color: var(--ink) }` resolves against `:root` once and children inherit that literal value. An act that only redefines `--ink` inherits the wrong ink everywhere. This shipped as a real bug before it was fixed.", "section": "colors" },
+      { "name": "The Two Pigments Rule", "body": "The warm fire marks a READING; olive marks a QUALITY. Olive is never a second accent, never a fill, never a button.", "section": "colors" },
+      { "name": "The On-Accent Rule", "body": "Text on an accent fill uses `var(--on-accent)`, which flips per act. Any hardcoded colour there fails contrast in one act or the other.", "section": "colors" },
+      { "name": "The Gloss Rule", "body": "Albanian leads; English supports beneath it in italic display in the accent colour. English never appears as a tracked uppercase line above a headline — that is an eyebrow, and this world does not have them.", "section": "typography" },
+      { "name": "The Instrument Voice Rule", "body": "Tracked uppercase (`.reading`) is reserved for things that are actually measured or named data: a label over a value, a tag, a clock readout. It never carries a sentence and never introduces a heading.", "section": "typography" },
+      { "name": "The Rail Rule", "body": "`--rail` is the light meter's reserved lane in the shell's right padding. Fixed chrome takes part in no layout, so any right-aligned block at that vertical band collides with the readout unless the rail reserves it. A full-bleed element that cancels the gutter must also cancel the rail.", "section": "layout" },
+      { "name": "The Live Height Rule", "body": "Viewport-height rooms use `min-h-[100dvh]`, never `h-screen`.", "section": "layout" },
+      { "name": "The Warm Shade Rule", "body": "Every shadow is negative-spread, blurred, and tinted through `--lift`. No flat halos, no grey.", "section": "elevation" },
+      { "name": "The Light-First Rule", "body": "Reach for a gradient, a scrim or a ground change before reaching for a shadow. Cards in Explore have no shadow at all; they rise 4px on hover instead.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do give any new act-like wrapper the complete token set *and* `color: var(--ink)`, or its children inherit the wrong ink.",
+      "Do read the hour from the one clock (`useClock()`); it is the same motion value that drives the meter, the ground and the scene's sun.",
+      "Do keep the crossover in `src/sections/Ora.tsx` derived from the single `ROOM_SWITCH` constant — ground stops, ink stops, vignette and both `data-act` sentinels. Retiming it anywhere else desynchronises the fixed chrome from the ground.",
+      "Do set `--ground` and `color` explicitly when animating act tokens on a `motion.section`; the scene's edge fade and every child reading the ground need them, not just the section's own paint.",
+      "Do use `var(--on-accent)` for text on any accent fill.",
+      "Do reserve `--rail` in the right padding of anything that must not meet the light meter, and cancel it as well as the gutter when bleeding to the page edge.",
+      "Do observe the *heading* in a word-by-word reveal, never the word. Each word starts translated out of an `overflow-hidden` wrapper, and IntersectionObserver clips a target's rect by its ancestors' overflow: observing the word caps its ratio below any useful threshold and the line never appears. This shipped invisible at all three call sites before it was caught.",
+      "Do gate every value through `known()` and name what is unknown in Albanian (\"nuk dihet\", \"s'e dimë ende\").",
+      "Do vary the grid and the aspect ratio between adjacent groups; sameness is the category default this world was built against.",
+      "Do ship a designed still for any capability fallback (no WebGL, low power, reduced motion) that carries the same idea as the live version."
+    ],
+    "donts": [
+      "Don't tint a shared ground to suggest a different hour. Declare an act.",
+      "Don't use olive as a second accent or as a fill; it marks qualities only.",
+      "Don't set the English gloss as a tracked uppercase line above a headline. Tracked uppercase belongs to measurements and tags.",
+      "Don't introduce a third radius. Plates are square; actions are pills.",
+      "Don't use a flat or grey shadow. Warm, blurred, negative-spread, tinted through `--lift`, or no shadow at all.",
+      "Don't hardcode a colour where an act token exists — `--ink`, `--ground`, `--rule`, `--accent`, `--on-accent`, `--moss`, `--lift` all flip per act.",
+      "Don't render a null as a zero, a dash, a crossed-out icon, or by omission.",
+      "Don't animate anything but `transform`, `opacity`, `filter` and `clip-path`, and don't reach for a built-in easing.",
+      "Don't put the grain on a scrolling container; it is one fixed, `pointer-events-none` overlay.",
+      "Don't add a `window.addEventListener('scroll')`; use the clock, `useScroll`/`useTransform`, or IntersectionObserver."
+    ]
+  }
+}

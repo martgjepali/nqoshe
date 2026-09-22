@@ -13,6 +13,13 @@ import { ease, formatHour } from '../lib/motion';
 
 const TableScene = lazy(() => import('../three/TableScene'));
 
+/**
+ * Where in this section the room stops being daylit and becomes lamplit.
+ * The ground, the ink, the vignette and the fixed chrome's act sentinels are
+ * all derived from this one number.
+ */
+const ROOM_SWITCH = 0.74;
+
 interface Beat {
   time: string;
   sq: string;
@@ -27,19 +34,19 @@ const beats: Beat[] = [
     time: '07:00',
     sq: 'Streha hap. Drita bie mbi tryezën e gjatë.',
     en: 'Streha opens. The light lands along the long table.',
-    at: [6.9, 7.1, 10.6, 11.9],
+    at: [6.9, 7.1, 10.4, 11.6],
   },
   {
     time: '16:30',
     sq: 'Te Izzy nis muzika. Mbyll laptopin, ose ndërro qoshe.',
     en: 'At Izzy the music starts. Close the laptop, or change corners.',
-    at: [14.6, 16.0, 17.6, 18.9],
+    at: [14.2, 15.8, 17.2, 18.2],
   },
   {
-    time: '23:00',
-    sq: '505 ka mbyllur para një ore. Momus ende jo.',
-    en: '505 shut an hour ago. Momus has not.',
-    at: [21.2, 22.4, 23.0, 23.2],
+    time: '19:00',
+    sq: 'Innospace mbyll. Streha rri hapur edhe katër orë.',
+    en: 'Innospace closes. Streha stays open four hours longer.',
+    at: [17.8, 18.8, 19.7, 20.0],
   },
 ];
 
@@ -96,8 +103,8 @@ export function Ora() {
   // light; the ROOM's light is what this changes, and a room goes from daylight
   // to lamplight quickly. Keeping that crossover narrow is also what keeps the
   // copy legible: text never sits on a mid-tone ground for more than a frame.
-  const stops = [0, 0.7, 0.76, 0.82, 1];
-  const inkStops = [0, 0.75, 0.78, 1];
+  const stops = [0, ROOM_SWITCH - 0.06, ROOM_SWITCH, ROOM_SWITCH + 0.06, 1];
+  const inkStops = [0, ROOM_SWITCH - 0.01, ROOM_SWITCH + 0.02, 1];
   const ground = useTransform(scrollYProgress, stops, [
     '#FAF3E7',
     '#E9D5B3',
@@ -135,7 +142,7 @@ export function Ora() {
     'rgba(244,231,211,0.16)',
     'rgba(244,231,211,0.14)',
   ]);
-  const vignette = useTransform(scrollYProgress, [0.76, 1], [0, 0.7]);
+  const vignette = useTransform(scrollYProgress, [ROOM_SWITCH, 1], [0, 0.7]);
 
   // Motion values in `style` only bind on a motion component; the custom
   // properties are what carry the hour down to every child in the act.
@@ -153,7 +160,7 @@ export function Ora() {
         '--ink-3': ink3,
         '--accent': accent,
         '--rule': rule,
-        height: '340vh',
+        height: '300vh',
       };
 
   return (
@@ -164,8 +171,18 @@ export function Ora() {
       style={style as never}
     >
       {/* Sentinels for the fixed chrome: the act flips where the light does. */}
-      <div aria-hidden data-act="dawn" className="absolute inset-x-0 top-0 h-[77%]" />
-      <div aria-hidden data-act="night" className="absolute inset-x-0 bottom-0 h-[23%]" />
+      <div
+        aria-hidden
+        data-act="dawn"
+        className="absolute inset-x-0 top-0"
+        style={{ height: `${ROOM_SWITCH * 100}%` }}
+      />
+      <div
+        aria-hidden
+        data-act="night"
+        className="absolute inset-x-0 bottom-0"
+        style={{ height: `${(1 - ROOM_SWITCH) * 100}%` }}
+      />
 
       <div className="sticky top-0 h-[100dvh] overflow-hidden">
         <div className="grid h-full grid-cols-1 lg:grid-cols-12">
@@ -193,7 +210,7 @@ export function Ora() {
                       className="display text-[clamp(2.4rem,4.4vw,3.6rem)] leading-none"
                       style={{ color: 'var(--accent)' }}
                     >
-                      07:00 &ndash; 23:00
+                      07:00 &ndash; 20:00
                     </span>
                   ) : (
                     <Readout hour={hour} />

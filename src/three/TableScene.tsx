@@ -188,10 +188,10 @@ function Table() {
 const SUN_KEYS = [
   // progress, position, colour, intensity
   { p: 0.0, pos: [-3.4, 0.8, 1.9], color: '#FFC373', i: 4.6 },
-  { p: 0.26, pos: [-1.2, 4.4, 1.2], color: '#FFEFD6', i: 3.8 },
-  { p: 0.44, pos: [2.5, 0.95, 0.9], color: '#FF8033', i: 3.4 },
-  { p: 0.6, pos: [3.0, 0.2, 0.4], color: '#8E3410', i: 0.5 },
-  { p: 1.0, pos: [3.2, -0.3, 0.2], color: '#4A1A08', i: 0.08 },
+  { p: 0.34, pos: [-1.2, 4.4, 1.2], color: '#FFEFD6', i: 3.8 },
+  { p: 0.7, pos: [2.5, 0.95, 0.9], color: '#FF8033', i: 3.4 },
+  { p: 0.8, pos: [3.0, 0.18, 0.4], color: '#8E3410', i: 0.5 },
+  { p: 1.0, pos: [3.2, -0.3, 0.2], color: '#4A1A08', i: 0.06 },
 ];
 
 function sample(progress: number) {
@@ -237,16 +237,16 @@ function Light({ read }: { read: () => number }) {
 
     if (lamp.current) {
       // The table lamp only earns its place once the sun has gone.
-      lamp.current.intensity = THREE.MathUtils.smoothstep(p, 0.4, 0.62) * 3.6;
+      lamp.current.intensity = THREE.MathUtils.smoothstep(p, 0.68, 0.86) * 3.6;
     }
 
     if (ambient.current) {
-      scratch.copy(skyDay).lerp(skyNight, THREE.MathUtils.smoothstep(p, 0.3, 0.58));
+      scratch.copy(skyDay).lerp(skyNight, THREE.MathUtils.smoothstep(p, 0.58, 0.84));
       ambient.current.color.copy(scratch);
       ambient.current.intensity = THREE.MathUtils.lerp(
         0.85,
         0.2,
-        THREE.MathUtils.smoothstep(p, 0.28, 0.6),
+        THREE.MathUtils.smoothstep(p, 0.56, 0.86),
       );
     }
   });

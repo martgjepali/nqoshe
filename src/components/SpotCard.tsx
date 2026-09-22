@@ -5,12 +5,13 @@ import { categoryCopy, imageFor, known, toneFor } from '../lib/spots';
 import { ReadingStrip, UnknownNote, readingsFor, unknownFields } from './Readings';
 import { ease } from '../lib/motion';
 
-type Ratio = 'tall' | 'portrait' | 'wide';
+type Ratio = 'tall' | 'portrait' | 'wide' | 'letterbox';
 
 const ratioClass: Record<Ratio, string> = {
   tall: 'aspect-[3/4]',
   portrait: 'aspect-[4/5]',
   wide: 'aspect-[16/10]',
+  letterbox: 'aspect-[2/1]',
 };
 
 interface SpotCardProps {
@@ -74,7 +75,7 @@ export function SpotCard({ spot, ratio = 'portrait', index = 0, className }: Spo
                 className="reading rounded-full px-2.5 py-1"
                 style={{
                   background: 'rgba(250,243,231,0.14)',
-                  color: '#FAF3E7',
+                  color: '#E6EFD2',
                   backdropFilter: 'blur(6px)',
                 }}
               >

@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useMotionValueEvent, useTransform, useReducedMotion } from 'motion/react';
 import { useClock } from '../lib/clock';
+import { useActAtTop } from '../lib/act';
 import { DAY_END, DAY_START, formatHour } from '../lib/motion';
 
 const TICKS = [8, 11, 14, 17, 20, 23];
@@ -17,6 +18,7 @@ const at = (h: number) => `${((h - DAY_START) / span) * 100}%`;
  */
 export function LightMeter() {
   const { progress, hour } = useClock();
+  const act = useActAtTop();
   const reduce = useReducedMotion();
   const readout = useRef<HTMLSpanElement>(null);
 
@@ -32,22 +34,23 @@ export function LightMeter() {
       {/* Desktop: a light meter hung down the right edge of the page. */}
       <div
         aria-hidden
-        className="pointer-events-none fixed top-1/2 right-4 z-40 hidden h-[44vh] -translate-y-1/2 lg:block xl:right-6"
+        className={`act-${act} pointer-events-none fixed top-1/2 right-4 z-40 hidden h-[44vh] -translate-y-1/2 lg:block xl:right-6`}
       >
         {/* its own ground, so it reads over cream, over midnight and over a photograph */}
         <div
           className="absolute -top-10 -bottom-14 right-[-1.15rem] -left-14 blur-[14px]"
           style={{
             background:
-              'radial-gradient(60% 50% at 78% 50%, rgba(26,18,12,0.42) 0%, rgba(26,18,12,0) 100%)',
+              'radial-gradient(58% 50% at 78% 50%, color-mix(in oklab, var(--ground) 62%, transparent) 0%, transparent 100%)',
+            transition: 'background 450ms ease',
           }}
         />
-        <div className="relative h-full w-px" style={{ background: 'rgba(216,154,74,0.34)' }}>
+        <div className="relative h-full w-px" style={{ background: 'rgba(216,154,74,0.48)' }}>
           {TICKS.map((h) => (
             <span
               key={h}
               className="absolute right-0 h-px w-2.5"
-              style={{ top: at(h), background: 'rgba(216,154,74,0.5)' }}
+              style={{ top: at(h), background: 'rgba(216,154,74,0.68)' }}
             />
           ))}
           <motion.span
@@ -62,8 +65,18 @@ export function LightMeter() {
         </div>
         <span
           ref={readout}
-          className="reading absolute top-full right-0 mt-3 block whitespace-nowrap"
-          style={{ color: '#E9AE63', textShadow: '0 1px 10px rgba(26,18,12,0.75)' }}
+          className="reading absolute top-full right-[-0.5px] block px-1.5 pt-1.5 pb-1 text-right whitespace-nowrap"
+          style={{
+            color: 'var(--ink-2)',
+            // A shade darker than the act's own field, never lighter: a plate
+            // above its ground reads as stuck on, whatever its geometry. It
+            // needs a fill at all because it hangs over whatever is at that
+            // edge, including the hero photograph, where the same value also
+            // sits a shade lighter than the picture.
+            background: 'var(--readout-plate)',
+            borderTop: '1px solid rgba(216,154,74,0.48)',
+            transition: 'color 450ms ease, background 450ms ease',
+          }}
         >
           {formatHour(DAY_START)}
         </span>

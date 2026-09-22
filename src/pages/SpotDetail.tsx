@@ -151,18 +151,18 @@ export default function SpotDetail() {
             animate={reduce ? undefined : { opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 1.2, delay: 0.15, ease: ease.out }}
           >
-            <p
-              className="reading"
-              style={{ color: '#EDB874', textShadow: '0 1px 14px rgba(20,13,8,0.85)' }}
-            >
-              {[spot.neighborhood || 'Tiranë', cat?.en].filter(Boolean).join(' / ')}
-            </p>
             <h1
-              className="display mt-3 max-w-[16ch] text-[clamp(2.2rem,7vw,4.6rem)] leading-[0.98]"
+              className="display max-w-[16ch] text-[clamp(2.2rem,7vw,4.6rem)] leading-[0.98]"
               style={{ color: '#FAF3E7', textShadow: '0 2px 30px rgba(20,13,8,0.6)' }}
             >
               {spot.name}
             </h1>
+            <p
+              className="mt-4 text-[1.0625rem]"
+              style={{ color: '#EDB874', textShadow: '0 1px 14px rgba(20,13,8,0.85)' }}
+            >
+              {[spot.neighborhood || 'Tiranë', cat?.sq].filter(Boolean).join(', ')}
+            </p>
           </motion.div>
         </div>
       </div>
@@ -204,12 +204,19 @@ export default function SpotDetail() {
                   Mirë për
                 </h2>
                 <p className="gloss mt-1.5 text-[0.95rem]">Good for</p>
-                <ul className="mt-5 m-0 grid list-none grid-cols-1 gap-x-8 p-0 sm:grid-cols-2">
+                {/* Two columns only when there is enough to fill them: a ruled
+                    row with nothing under it reads as an absence, and under the
+                    null rule this page never implies one. */}
+                <ul
+                  className={`mt-5 m-0 grid list-none grid-cols-1 gap-x-10 p-0 ${
+                    spot.best_for.length >= 4 ? 'sm:grid-cols-2' : ''
+                  }`}
+                >
                   {spot.best_for.map((b) => (
                     <li
                       key={b}
                       className="display py-2.5 text-[1.05rem]"
-                      style={{ color: 'var(--ink-2)', borderBottom: '1px solid var(--rule)' }}
+                      style={{ color: 'var(--moss)', borderBottom: '1px solid var(--rule)' }}
                     >
                       {bestForCopy[b] ?? b.replace(/_/g, ' ')}
                     </li>
@@ -226,7 +233,10 @@ export default function SpotDetail() {
                   <li
                     key={t}
                     className="reading rounded-full px-3.5 py-2"
-                    style={{ border: '1px solid var(--rule)', color: 'var(--ink-2)' }}
+                    style={{
+                      border: '1px solid color-mix(in oklab, var(--moss) 40%, transparent)',
+                      color: 'var(--moss)',
+                    }}
                   >
                     {t.replace(/-/g, ' ')}
                   </li>
@@ -255,68 +265,14 @@ export default function SpotDetail() {
               </div>
             </Reveal>
           )}
-        </div>
-
-        {/* --- the panel ------------------------------------------------ */}
-        <div className="lg:col-span-5">
-          <Reveal delay={0.1}>
-            <div
-              className="p-7 md:p-9"
-              style={{ background: 'var(--ground-2)', border: '1px solid var(--rule)' }}
-            >
-              <h2 className="display text-[1.35rem] leading-tight" style={{ color: 'var(--ink)' }}>
-                Sa mirë punohet këtu
-              </h2>
-              <p className="gloss mt-1.5 text-[1rem]">How workable it is</p>
-
-              {known(spot.work_score) && (
-                <div
-                  className="mt-7 flex items-baseline gap-3 pb-7"
-                  style={{ borderBottom: '1px solid var(--rule)' }}
-                >
-                  <span
-                    className="display text-[3.4rem] leading-none"
-                    style={{ color: 'var(--accent)' }}
-                  >
-                    {spot.work_score}
-                  </span>
-                  <span className="text-[0.875rem] leading-[1.4]" style={{ color: 'var(--ink-2)' }}>
-                    nga 10, sipas burimeve
-                    <br />
-                    <span style={{ color: 'var(--ink-3)' }}>work score, from the sources</span>
-                  </span>
-                </div>
-              )}
-
-              <div className="mt-7">
-                <RowList rows={comfort(spot)} />
-              </div>
-              <div className="mt-8 pt-8" style={{ borderTop: '1px solid var(--rule)' }}>
-                <RowList rows={practical(spot)} />
-              </div>
-
-              <a
-                href={spot.google_maps_url}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="mt-9 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[0.9375rem] font-medium no-underline transition-transform duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-[0.98]"
-                style={{ background: 'var(--accent)', color: 'var(--on-accent)' }}
-              >
-                Hape në hartë <ArrowUpRight size={16} weight="bold" />
-              </a>
-              {spot.address && (
-                <p className="mt-3.5 text-center text-[0.8125rem]" style={{ color: 'var(--ink-3)' }}>
-                  {spot.address}
-                </p>
-              )}
-            </div>
-
+          <Reveal delay={0.16}>
             {/* --- provenance ------------------------------------------- */}
             <div className="mt-8">
-              <h2 className="reading" style={{ color: 'var(--ink-3)' }}>
+              <h2 className="display text-[1.35rem]" style={{ color: 'var(--ink)' }}>
                 Nga vijnë këto
               </h2>
-              <p className="mt-3 text-[0.875rem] leading-[1.6]" style={{ color: 'var(--ink-2)' }}>
+              <p className="gloss mt-1.5 text-[0.95rem]">Where this comes from</p>
+              <p className="mt-5 text-[0.9rem] leading-[1.6]" style={{ color: 'var(--ink-2)' }}>
                 Compiled from public sources
                 {known(spot.oldest_source_year) ? `, the oldest from ${spot.oldest_source_year}` : ''}
                 . Not visited or confirmed in person.
@@ -375,6 +331,63 @@ export default function SpotDetail() {
                 </ul>
               )}
             </div>
+          </Reveal>
+        </div>
+
+        {/* --- the panel ------------------------------------------------ */}
+        <div className="lg:col-span-5">
+          <Reveal delay={0.1}>
+            <div
+              className="p-7 md:p-9"
+              style={{ background: 'var(--ground-2)', border: '1px solid var(--rule)' }}
+            >
+              <h2 className="display text-[1.35rem] leading-tight" style={{ color: 'var(--ink)' }}>
+                Sa mirë punohet këtu
+              </h2>
+              <p className="gloss mt-1.5 text-[1rem]">How workable it is</p>
+
+              {known(spot.work_score) && (
+                <div
+                  className="mt-7 flex items-baseline gap-3 pb-7"
+                  style={{ borderBottom: '1px solid var(--rule)' }}
+                >
+                  <span
+                    className="display text-[3.4rem] leading-none"
+                    style={{ color: 'var(--accent)' }}
+                  >
+                    {spot.work_score}
+                  </span>
+                  <span className="text-[0.875rem] leading-[1.4]" style={{ color: 'var(--ink-2)' }}>
+                    nga 10, sipas burimeve
+                    <br />
+                    <span style={{ color: 'var(--ink-3)' }}>work score, from the sources</span>
+                  </span>
+                </div>
+              )}
+
+              <div className="mt-7">
+                <RowList rows={comfort(spot)} />
+              </div>
+              <div className="mt-8 pt-8" style={{ borderTop: '1px solid var(--rule)' }}>
+                <RowList rows={practical(spot)} />
+              </div>
+
+              <a
+                href={spot.google_maps_url}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="mt-9 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[0.9375rem] font-medium no-underline transition-transform duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-[0.98]"
+                style={{ background: 'var(--accent)', color: 'var(--on-accent)' }}
+              >
+                Hape në hartë <ArrowUpRight size={16} weight="bold" />
+              </a>
+              {spot.address && (
+                <p className="mt-3.5 text-center text-[0.8125rem]" style={{ color: 'var(--ink-3)' }}>
+                  {spot.address}
+                </p>
+              )}
+            </div>
+
           </Reveal>
         </div>
       </div>

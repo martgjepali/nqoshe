@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { motion, useReducedMotion } from 'motion/react';
+import { motion, useReducedMotion, type Variants } from 'motion/react';
 import { ease } from '../lib/motion';
 
 interface RevealProps {
@@ -52,9 +52,15 @@ interface WordRevealProps {
 }
 
 /**
- * Word-by-word reveal for the editorial lines. Words carry a weight change
- * as well as position, so the sentence looks like it is being set rather
- * than being slid in.
+ * Word-by-word reveal for the editorial lines. Words carry a weight change as
+ * well as position, so the sentence looks like it is being set rather than
+ * slid in.
+ *
+ * The heading itself is the element in view, never the word: each word starts
+ * translated out of an `overflow-hidden` wrapper, and IntersectionObserver
+ * clips a target's rect by its ancestors' overflow. Observing the word would
+ * cap its visible ratio below any useful threshold and the line would never
+ * appear at all.
  */
 export function WordReveal({
   text,
@@ -68,26 +74,39 @@ export function WordReveal({
 
   if (reduce) return <Tag className={className}>{text}</Tag>;
 
+  const MotionTag = motion[Tag];
+
+  const container: Variants = {
+    hidden: {},
+    shown: { transition: { delayChildren: delay, staggerChildren: stagger } },
+  };
+
+  const word: Variants = {
+    hidden: { y: '85%', opacity: 0, fontWeight: 300 },
+    shown: {
+      y: '0%',
+      opacity: 1,
+      fontWeight: 500,
+      transition: { duration: 1.05, ease: ease.out },
+    },
+  };
+
   return (
-    <Tag className={className}>
-      {words.map((word, i) => (
-        <span key={`${word}-${i}`} className="inline-block overflow-hidden pb-[0.12em] align-bottom">
-          <motion.span
-            className="inline-block"
-            initial={{ y: '85%', opacity: 0, fontWeight: 300 }}
-            whileInView={{ y: '0%', opacity: 1, fontWeight: 500 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{
-              duration: 1.05,
-              delay: delay + i * stagger,
-              ease: ease.out,
-            }}
-          >
-            {word}
+    <MotionTag
+      className={className}
+      variants={container}
+      initial="hidden"
+      whileInView="shown"
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      {words.map((w, i) => (
+        <span key={`${w}-${i}`} className="inline-block overflow-hidden pb-[0.12em] align-bottom">
+          <motion.span className="inline-block" variants={word}>
+            {w}
             {i < words.length - 1 ? ' ' : ''}
           </motion.span>
         </span>
       ))}
-    </Tag>
+    </MotionTag>
   );
 }
